@@ -7,11 +7,11 @@ export function Routing()
         <BrowserRouter>
             <Routes>
                 <Route path="/:product?" element={<Main />} />
-                <Route path="/account" element={<Main />}/>
+                <Route path="/account" element={<Main child={() => {return<h1>Mmmm... Account 0_0 -_- 0_0 chhgm... ew Account</h1>}}/>}/>
                 <Route path="/authentication" element={<Main />}/>
                 <Route path="/registration" element={<Main />}/>
                 <Route path="/showcase/:id" element={<Main />}/>
-                <Route path="/ordering" element={<Main />}/> 
+                <Route path="/ordering" element={<Main child={() => {return<h1>Mmmm... Account 0_0 -_- 0_0 chhgm... ew Ordering</h1>}}/>}/> 
             </Routes>
         </BrowserRouter>
     )

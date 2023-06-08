@@ -1,0 +1,56 @@
+.headerContainer{
+    display:flex;
+    flex-flow: row;
+    align-items: center;
+    height:105px;
+    background-color: rgba(253, 169, 143, 1);
+}
+
+.header{
+    padding: 25px 25px 25px 25px;
+    flex: 0.28 1 380px;
+}
+
+.searchBar{
+    margin: 25px 0px 25px 0px;
+    padding: 5px 0px;
+    flex: 0.8 1 800px;
+    max-width: 1000px;
+}
+
+.header h1{
+    font-size: 2.75rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 0px 0px rgba(216,120,120,1), 0px 1px 0px rgba(216,120,120,1), -1px 0px 0px rgba(216,120,120,1), 0px -1px 0px rgba(216,120,120,1);
+}
+
+.personalAcc{
+    height: 70px;
+    flex: 0 0 60px;
+    margin: 0px 25px 0px 0px;
+    background-image: url("../../assets/icons/personalAccIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+}
+
+.personalAcc:hover{
+    background-image: url("../../assets/icons/personalAccIcon-white.svg");
+}
+
+.cart{
+    height: 70px;
+    flex: 0 0 60px;
+    background-image: url("../../assets/icons/cartIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+}
+
+.cart:hover{
+    background-image: url("../../assets/icons/cartIcon-white.svg");
+}
+
+.interceptor{
+    flex: 0 6 270px;
+    min-width: 40px;
+}

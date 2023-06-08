@@ -1,0 +1,47 @@
+.searchBarWrapper{
+    display: flex;
+    height: 45px;
+}
+
+input[type="text"]
+{
+    height: 45px;
+    padding: 0px 0px 0px 20px;
+    outline: none;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    flex: 0.9 3 610px;
+}
+
+input[type="text"]::placeholder{
+    padding: 0px 0px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+button{
+    height: 45px;
+    background-color: rgba(120, 170, 216, 1);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    flex: 0 0 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgba(98, 158, 214, 1);
+}
+
+.searchIcon{
+    width:35px;
+    height:35px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-repeat: round;
+    background-image: url("../../../assets/icons/searchIcon.svg");
+    background-size: cover;
+}

@@ -1,12 +1,12 @@
 import React from "react";
-import "../../../assets/styles/global.css"
-import {SiteNavBar} from "../../../services/Header/NavBar/SiteNavBar.js"
+import "../../../assets/styles/global.css";
+import { Header } from "../../../services/Header/Header.js";
 import { useParams } from "react-router-dom";
 
-function Main() {
-    const { product } = useParams();
+function Main({child}) {
 
-    var Body = undefined;
+    const { product } = useParams();
+    var Body = child;
     switch (product) {
         case "waffles" :
             Body= () => {return(<h1>Mmmm... waffles</h1>)};
@@ -24,13 +24,13 @@ function Main() {
         case "candies" :
             Body= () => {return(<h1>Mmmm... candies</h1>)};
         break;
-        default: Body= () => {return(<h1>Mmmm... nothing</h1>)};
+        default: if(Body === undefined) Body= () => {return(<h1>Mmmm... nothing</h1>)};
         break;
     }
     return(
         <>
             <header>
-                <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
+                <Header />
             </header>
             <main>
                 <Body />
