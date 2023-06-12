@@ -1,0 +1,14 @@
+.rowWrapper{
+    display:flex;
+    flex-wrap: wrap;
+    margin-left: 10vw;
+}
+
+.firstHalf{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.secondHalf{
+    flex-flow: row wrap;
+}

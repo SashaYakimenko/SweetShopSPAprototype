@@ -1,0 +1,10 @@
+.imageContainer{
+    margin: 10px;
+}
+
+.productNode{
+    background-color: #FFFFFF;
+    width: 350px;
+    height: 430px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+}

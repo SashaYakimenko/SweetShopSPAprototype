@@ -11,7 +11,7 @@ export function Header()
         <>
             <div className={styles.headerContainer}>
                 <div className={styles.header}>
-                    <h1>Candice&Candies</h1>
+                    <h1 onClick={(e) => {nav("/")}} className={styles.title}>Candice&Candies</h1>
                 </div>
                 <div className={styles.searchBar}>
                     <SearchBar  />

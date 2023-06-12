@@ -76,3 +76,19 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.mainWrapper{
+    position:relative;
+    background-color: #EAF4FD;
+    min-height: 100vh;
+}
+
+.mainWrapper main .modalWrapper{
+    position:absolute;
+    display: flex;
+    height: 50px;
+    min-width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    top: 0px;
+}

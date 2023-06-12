@@ -6,6 +6,10 @@
     background-color: rgba(253, 169, 143, 1);
 }
 
+.title:hover{
+    cursor:pointer;
+}
+
 .header{
     padding: 25px 25px 25px 25px;
     flex: 0.28 1 380px;

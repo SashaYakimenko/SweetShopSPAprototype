@@ -2,43 +2,43 @@ import React from "react";
 import "../../../assets/styles/global.css";
 import { Header } from "../../../services/Header/Header.js";
 import { useParams } from "react-router-dom";
+import { Body } from "../../../services/Body/Body.js";
 
 function Main({child}) {
 
-    const { product } = useParams();
-    var Body = child;
+    var { product } = useParams();
+    var BodyPlate = child;
     switch (product) {
         case "waffles" :
-            Body= () => {return(<h1>Mmmm... waffles</h1>)};
-            window.history.pushState(null, null, "/waffles");
+            BodyPlate= () => {return(<Body />)}
         break;
         case "pancakes" :
-            Body= () => {return(<h1>Mmmm... pancakes</h1>)};
+            BodyPlate= () => {return(<h1>Mmmm... pancakes</h1>)};
         break;
         case "chocolate" :
-            Body= () => {return(<h1>Mmmm... chocolate</h1>)};
+            BodyPlate= () => {return(<h1>Mmmm... chocolate</h1>)};
         break;
         case "cakes" :
-            Body= () => {return(<h1>Mmmm... cakes</h1>)};
+            BodyPlate= () => {return(<h1>Mmmm... cakes</h1>)};
         break;
         case "candies" :
-            Body= () => {return(<h1>Mmmm... candies</h1>)};
+            BodyPlate= () => {return(<h1>Mmmm... candies</h1>)};
         break;
-        default: if(Body === undefined) Body= () => {return(<h1>Mmmm... nothing</h1>)};
+        default: if(BodyPlate === undefined) BodyPlate= () => {return(<h1>Mmmm... nothing</h1>)};
         break;
     }
     return(
-        <>
+        <div className="mainWrapper">
             <header>
                 <Header />
             </header>
             <main>
-                <Body />
+                <BodyPlate />
             </main>
             <footer>
 
             </footer>
-        </>
+        </div>
     )
 }
 
