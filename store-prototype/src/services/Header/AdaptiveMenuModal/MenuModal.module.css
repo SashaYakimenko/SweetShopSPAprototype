@@ -1,0 +1,162 @@
+.modalMenuWrapper{
+    z-index: 100;
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.0);
+    pointer-events: none;
+    transition: background-color 0.4s linear;
+}
+
+.navigationButtonWrapper, .personalCabinetButtonWrapper{
+    z-index: 400;
+    background-color: rgb(255, 243, 201);
+}
+
+.navigationListWrapper{
+    z-index: 300;
+}
+
+.modalMenuWrapper.active{
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
+.modalContent{
+    z-index: 200;
+    position: absolute;
+    background-color: rgb(255, 243, 201);
+    width: 30%;
+    height: 100vh;
+    top: 0px;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transform: translateX(-100%);
+    transition: transform 0.4s linear;
+}
+
+.modalContent.active{
+    transform: translateX(0px);
+}
+
+.navigationButton{
+    margin-left: 17px;
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height:50px;
+}
+
+.navigationIcon{
+    flex: 0 0 27px;
+    height: 22px;
+    margin-right:5px;
+    background-image: url("../../../assets/icons/menuIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+}
+
+.navigationButton:hover .navigationIcon{
+    filter: drop-shadow(0px 0px 0px rgb(48, 47, 47));
+}
+
+.navigationButton p{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.navigationButton:hover p{
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 0px 0px rgba(216,120,120,1), 0px 1px 0px rgba(216,120,120,1), -1px 0px 0px rgba(216,120,120,1), 0px -1px 0px rgba(216,120,120,1);
+}
+
+.personalCabinetButton{
+    margin-left: 15px;
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height:50px;
+}
+
+.personalCabinetButton:hover .cabinetIcon{
+    filter: drop-shadow(0px 0px 0px rgb(48, 47, 47));
+}
+
+.personalCabinetButton p{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.personalCabinetButton:hover p{
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 0px 0px rgba(216,120,120,1), 0px 1px 0px rgba(216,120,120,1), -1px 0px 0px rgba(216,120,120,1), 0px -1px 0px rgba(216,120,120,1);
+}
+
+.cabinetIcon{
+    margin-right:5px;
+    height: 35px;
+    flex: 0 0 30px;
+    background-image: url("../../../assets/icons/personalAccIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+}
+
+.navContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    height: 80vh;
+    padding: 0px;
+    margin: 0px;
+    transform: translateY(0%);
+    transition: transform 0.6s linear;
+}
+
+.navItem{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    height:50px;
+    list-style: none;
+}
+
+.line{
+    background-color: #fdaaa9cc;
+    margin-left: 5%;
+    width: 90%;
+    height: 2px;
+}
+
+.navItem a{
+    margin: auto 0px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.navItem:hover a{
+    font-weight: 600;
+    text-shadow: 1px 0px 0px rgba(216,120,120,1), 0px 1px 0px rgba(216,120,120,1), -1px 0px 0px rgba(216,120,120,1), 0px -1px 0px rgba(216,120,120,1);
+    color: white;
+}
+
+.modalContent .navContainer.dropActive{
+    transform: translateY(-35%);
+}
+
+.personalCabinetButtonWrapper:hover{
+    cursor:pointer;
+}
+.navigationButtonWrapper:hover{
+    cursor:pointer;
+}

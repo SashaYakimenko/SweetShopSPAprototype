@@ -8,6 +8,6 @@ export function SiteNavBarNode({ address })
     name = name[0].toUpperCase() + name.substring(1);
     
     return(
-        <NavBarNode nodeAddress={address} nodeName={name}/>
+            <NavBarNode nodeAddress={address} nodeName={name}/>
     )
 }

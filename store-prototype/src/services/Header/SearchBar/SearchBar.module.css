@@ -3,7 +3,7 @@
     height: 45px;
 }
 
-input[type="text"]
+.searchBarWrapper input[type="text"]
 {
     height: 45px;
     padding: 0px 0px 0px 20px;
@@ -14,13 +14,13 @@ input[type="text"]
     flex: 0.9 3 610px;
 }
 
-input[type="text"]::placeholder{
+.searchBarWrapper input[type="text"]::placeholder{
     padding: 0px 0px;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
-button{
+.searchBarWrapper button{
     height: 45px;
     background-color: rgba(120, 170, 216, 1);
     border-top-right-radius: 15px;
@@ -31,7 +31,7 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+.searchBarWrapper button:hover{
     background-color: rgba(98, 158, 214, 1);
 }
 

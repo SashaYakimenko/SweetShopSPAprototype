@@ -4,7 +4,7 @@ import { DetailsBar } from "./DetailsBar/DetailsBar";
 import { useNavigate } from "react-router-dom";
 import image from "../../../../assets/pictures/Waffle.png";
 
-export function ProductNode({ nodeData, isVisible, setIsVisible})
+export function ProductNode({ nodeData, isVisible, setIsVisible, index})
 {
     const [price, setPrice] = React.useState(999);
 

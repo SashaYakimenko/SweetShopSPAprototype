@@ -1,5 +1,7 @@
 import React from "react";
 import "../../../assets/styles/global.css";
+import "../../../assets/styles/Ubuntu.css";
+import "../../../assets/styles/Inter.css";
 import { Header } from "../../../services/Header/Header.js";
 import { useParams } from "react-router-dom";
 import { Body } from "../../../services/Body/Body.js";

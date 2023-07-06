@@ -3,24 +3,39 @@ import styles from "./Header.module.css";
 import { SiteNavBar } from "./NavBar/SiteNavBar.js";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
+import { MenuModal } from "./AdaptiveMenuModal/MenuModal.js";
+import { LogInModal } from "../LogInModal/LogInModal.js";
 
 export function Header()
 {
     var nav = useNavigate();
+    const [menuState, setMenuState] = React.useState(false);
+    const [logModalState, setLogModalState] = React.useState(false);
+
     return(
-        <>
-            <div className={styles.headerContainer}>
-                <div className={styles.header}>
-                    <h1 onClick={(e) => {nav("/")}} className={styles.title}>Candice&Candies</h1>
+        <div className={styles.headerContentContainer}>
+            <div className={styles.desktopContentContainer}> 
+                <div className={styles.headerContainer + " adaptiveWrapper"}>
+                    {(menuState) ? <div className={styles.mobileMenuButtonActive} onClick={() => {if (menuState === true) setMenuState(false)
+                        else setMenuState(true)}}/> : <div className={styles.mobileMenuButton} onClick={() => {if (menuState === true) setMenuState(false)
+                            else setMenuState(true)}}/> }
+                    <div className={styles.header}>
+                        <p className={styles.title} onClick={(e) => {nav("/")}}>Candice Candies</p>
+                    </div>
+                    <div className={styles.titleInterceptor} />
+                    <div className={styles.searchBar}>
+                        <SearchBar  />
+                    </div>
+                    <div className={styles.interceptor} />
+                    <div onClick={(e) => {nav("/ordering")}} className={styles.cart} />
+                    <div onClick={(e) => {nav("/account");
+                                          setLogModalState(true);}} className={styles.personalAcc} />
+                    <div className={styles.mobileSearchButton}></div>
                 </div>
-                <div className={styles.searchBar}>
-                    <SearchBar  />
-                </div>
-                <div className={styles.interceptor} />
-                <div onClick={(e) => {nav("/account")}} className={styles.personalAcc} />
-                <div onClick={(e) => {nav("/ordering")}} className={styles.cart} />
+                <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
             </div>
-            <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
-        </>
+            <MenuModal accModalState={logModalState} setAccModalState={setLogModalState} menuState={menuState} setMenuState={setMenuState} NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
+            <LogInModal logState={logModalState} setLogState={setLogModalState} />
+        </div>
     )
 }

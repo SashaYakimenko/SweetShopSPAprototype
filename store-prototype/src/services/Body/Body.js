@@ -29,8 +29,7 @@ export function Body()
     return(
     <div className={styles.bodyWrapper}> 
         <AddToCartModal isVisible={isVisible} setIsVisible={setIsVisible}/>
-        {changedData.map((item, index, arr) => { if (index + 1 == arr.length) return <ProductRow isVisible={isVisible} setIsVisible={setIsVisible} listOfDatas={item} key={index} lastRow={true}/>
-            return <ProductRow isVisible={isVisible} setIsVisible={setIsVisible} listOfDatas={item} key={index}/>})}
+        {changedData.map((item, index) => { return <ProductRow isVisible={isVisible} setIsVisible={setIsVisible} listOfDatas={item} key={index}/>})}
     </div>
     )
 }

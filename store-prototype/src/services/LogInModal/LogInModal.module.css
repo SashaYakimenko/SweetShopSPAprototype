@@ -1,0 +1,224 @@
+.LogWrapper{
+    position:absolute;
+    z-index: 700;
+    background-color: rgba(0, 0, 0, 0.0);
+    opacity: 0;
+    pointer-events: none;
+    display:flex;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    transition: opacity, background-color 0.4s linear;
+}
+
+.LogWrapper.active{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
+.LogContent{
+    position:absolute;
+    top: 30%;
+    background-color: rgba(255, 255, 255, 1);
+    width: 500px;
+    padding: 20px 30px;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transform: scale(0.96);
+    transition: transform 0.10s linear 0.3s;
+}
+
+.LogContent.active{
+    transform: scale(1);
+}
+
+.Line{
+    background-color: rgba(253, 169, 143, 1);
+    width: 100%;
+    height: 6px;
+}
+
+.LogTitle h2{
+    margin-bottom:4px;
+    margin-left:7px;
+    cursor: default;
+    font-family: Inter;
+    font-size: 31.2px;
+    font-weight: 600;
+}
+
+:is(.firstGroup, .secondGroup) label{
+    display: block;
+    position: absolute;
+    
+}
+
+.firstGroup, .secondGroup{
+    font-family: Inter;
+    width: 250px;
+    margin-left: 10px;
+}
+
+:is(.firstGroup, .secondGroup) input{
+    padding-left: 10px;
+    border-radius: 3px;
+    height:36px;
+    width: 100%;
+    border: 1px solid rgb(221, 221, 221);
+    font-size: 16px;
+}
+
+:is(.firstGroup, .secondGroup) input:focus{
+    outline: none;
+    border: 1px solid rgba(253, 169, 143, 1);
+    box-shadow: 0px 0px 3px rgba(253, 169, 143, 1);
+}
+
+:is(.firstGroup, .secondGroup) label{
+    position:absolute;
+}
+
+.firstGroup{
+    position:relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+:is(.firstGroup, .secondGroup) label{
+    cursor:text;
+    user-select: none;
+    top:10.5px;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-right: 1.5px;
+    margin-left: 10px;
+    color: #757272;
+    transition: top 0.05s linear;
+}
+
+:is(.firstGroup, .secondGroup) input:focus ~ :is(label, .nest){
+    top:-9px;
+    color: rgba(253, 169, 143, 1);
+}
+
+:is(.firstGroup, .secondGroup) input:valid ~ :is(label, .nest){
+    top:-9px;
+}
+
+.LogInInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.PassInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.PassInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.LogInInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.nest{
+    position: absolute;
+    background-color: white;
+    width: 43.38px;
+    height: 15.5px;
+    top: 40px;
+    margin-left: 10px;
+}
+
+.nest.email{
+    width: 37.08px;
+}
+
+.secondGroup .nest{
+    width: 64.45px;
+}
+
+
+.secondGroup{
+    position:relative;
+    margin-bottom:40px;
+}
+
+
+.ButtonContainer{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 34px;
+}
+
+.SubmitButton{
+    flex: 0 0 420px;
+    padding: 5px 0px;
+    border: 1px solid rgb(253, 169, 143);
+    background-color:rgba(253, 169, 143, 1);
+    transition: background-color 0.15s linear;
+}
+
+.SubmitButton p{
+    user-select: none;
+    font-family: Inter;
+    color: white;
+    font-size: 21.84px;
+    font-weight: 600;
+    margin: 4px 0px;
+}
+
+.SubmitButton:hover{
+    background-color:#ff9e81;
+    cursor: pointer;
+}
+
+.LogFooter p{
+    cursor:pointer;
+}
+
+.PassReveal{
+    position: absolute;
+    top: 12px;
+    left: 224px;
+    background-image: url("../../assets/icons/passRevealIcon.png");
+    background-repeat: round;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+}
+
+.PassReveal:hover{
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(71%) sepia(75%) saturate(1549%) hue-rotate(312deg) brightness(114%) contrast(101%);
+}
+
+.LoginToggle{
+    font-family: Inter;
+    font-size: 14px;
+    margin-left: 11px;
+    position: relative; 
+    top:-12px;
+}
+
+.errorMessage{
+    color: rgb(250, 0, 0);
+    height: 27px;
+    display:none;
+    position: relative;
+    z-index: 100;
+    font-size: 14px;
+    margin-left:5px;
+    font-family: inter;
+    width: 400px;
+}
+
+.errorMessage.active{
+    display:flex;
+    align-items: center;
+}
