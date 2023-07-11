@@ -1,0 +1,288 @@
+.RegWrapper{
+    position:absolute;
+    z-index: 700;
+    background-color: rgba(0, 0, 0, 0.0);
+    opacity: 0;
+    pointer-events: none;
+    display:flex;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.RegWrapper.active{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
+.RegContent{
+    position:absolute;
+    top: 20%;
+    background-color: rgba(255, 255, 255, 1);
+    width: 500px;
+    padding: 20px 30px;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transform: scale(0.96);
+    transition: transform 0.10s linear 0.3s;
+}
+
+.RegContent.active{
+    transform: scale(1);
+}
+
+.RegLine{
+    background-color: rgba(253, 169, 143, 1);
+    width: 100%;
+    height: 6px;
+}
+
+.RegTitle h2{
+    margin-bottom:4px;
+    margin-left:7px;
+    cursor: default;
+    font-family: Inter;
+    font-size: 31.2px;
+    font-weight: 600;
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) label{
+    display: block;
+    position: absolute;
+}
+
+.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup{
+    font-family: Inter;
+    width: 250px;
+    margin-left: 10px;
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) input{
+    padding-left: 10px;
+    border-radius: 3px;
+    height:36px;
+    width: 100%;
+    border: 1px solid rgb(221, 221, 221);
+    font-size: 16px;
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) input:focus{
+    outline: none;
+    border: 1px solid rgba(253, 169, 143, 1);
+    box-shadow: 0px 0px 3px rgba(253, 169, 143, 1);
+}
+
+.regFirstGroup{
+    position:relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.regSecondGroup{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.regThirdGroup{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.regFourthGroup{
+    position:relative;
+    margin-bottom:40px;
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) label{
+    cursor:text;
+    user-select: none;
+    top:10.5px;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-right: 1.5px;
+    margin-left: 10px;
+    color: #757272;
+    transition: top 0.05s linear;
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) input:focus ~ :is(label, .nest){
+    top:-9px;
+    color: rgba(253, 169, 143, 1);
+}
+
+:is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) input:valid ~ :is(label, .nest){
+    top:-9px;
+}
+
+.RegLoginInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.RegLoginInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.RegPassInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.RegPassInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.RegNameInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.RegNameInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.RegPassConfirmInput.notValid{
+    border: 1px solid rgb(250, 0, 0);
+    box-shadow: 0px 0px 3px rgb(250, 0, 0);
+}
+
+.RegPassConfirmInput.notValid ~ label{
+    color: rgb(250, 0, 0);
+}
+
+.nest{
+    position: absolute;
+    background-color: white;
+    width: 43.38px;
+    height: 15.5px;
+    top: 40px;
+    margin-left: 10px;
+}
+
+.nest.email{
+    width: 37.08px;
+}
+
+.regThirdGroup .nest{
+    width: 64.45px;
+}
+
+.regSecondGroup .nest{
+    width: 62.88px;
+}
+
+.regFourthGroup .nest{
+    width: 116.5px;
+}
+
+
+.regButtonContainer{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 34px;
+}
+
+.regSubmitButton{
+    flex: 0 0 420px;
+    padding: 5px 0px;
+    border: 1px solid rgb(253, 169, 143);
+    background-color:rgba(253, 169, 143, 1);
+    transition: background-color 0.15s linear;
+}
+
+.regSubmitButton p{
+    user-select: none;
+    font-family: Inter;
+    color: white;
+    font-size: 21.84px;
+    font-weight: 600;
+    margin: 4px 0px;
+}
+
+.regSubmitButton:hover{
+    background-color:#ff9e81;
+    cursor: pointer;
+}
+
+.LogFooter p{
+    cursor:pointer;
+}
+
+.RegPassReveal{
+    position: absolute;
+    top: 12px;
+    left: 224px;
+    background-image: url("../../../assets/icons/passRevealIcon.png");
+    background-repeat: round;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+}
+
+.RegPassReveal:hover{
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(71%) sepia(75%) saturate(1549%) hue-rotate(312deg) brightness(114%) contrast(101%);
+}
+
+.toggle{
+    font-family: Inter;
+    font-size: 15px;
+    margin-left: 11px;
+    position: relative;
+    left: 20px;
+    top: -17px;
+}
+
+.LoginLink{
+    font-family: Inter;
+    font-size: 14px;
+    margin-left: 11px;
+    position: relative; 
+    top:-14px;
+}
+
+.regErrorMessage{
+    color: rgb(250, 0, 0);
+    height: 27px;
+    display:none;
+    position: relative;
+    z-index: 100;
+    font-size: 14px;
+    margin-left:5px;
+    font-family: inter;
+    width: 400px;
+}
+
+.regErrorMessage.active{
+    display:flex;
+    align-items: center;
+}
+
+:is(.checkBoxContainer, .privacyCheckBoxContainer, .newsCheckBoxContainer) div{
+    margin-left: 11px;
+    width: 15px;
+    height: 15px;
+    background-color: #757272;
+    cursor:pointer;
+}
+
+:is(.checkBoxContainer, .privacyCheckBoxContainer, .newsCheckBoxContainer) p{
+    cursor:pointer;
+    user-select: none;
+    display:inline-block;
+}
+
+:is(.checkBoxContainer, .privacyCheckBoxContainer, .newsCheckBoxContainer).active div{
+    background-color: rgb(253, 169, 143);
+}
+
+:is(.checkBoxContainer, .privacyCheckBoxContainer, .newsCheckBoxContainer) {
+    height: 30px;
+}
+
+.newsCheckBoxContainer{
+    margin-bottom: 10px;
+}

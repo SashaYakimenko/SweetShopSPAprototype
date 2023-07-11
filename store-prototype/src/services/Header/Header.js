@@ -4,13 +4,16 @@ import { SiteNavBar } from "./NavBar/SiteNavBar.js";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { MenuModal } from "./AdaptiveMenuModal/MenuModal.js";
-import { LogInModal } from "../LogInModal/LogInModal.js";
+import { LogInModal } from "./LogInModal/LogInModal.js";
+import { RegistrationModal } from "./RegistrationModal/RegistrationModal.js"
 
 export function Header()
 {
     var nav = useNavigate();
     const [menuState, setMenuState] = React.useState(false);
     const [logModalState, setLogModalState] = React.useState(false);
+    const [registerModalState, setRegisterModalState] = React.useState(false);
+    const [fromReg, setFromReg] = React.useState(false);
 
     return(
         <div className={styles.headerContentContainer}>
@@ -35,7 +38,8 @@ export function Header()
                 <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
             </div>
             <MenuModal accModalState={logModalState} setAccModalState={setLogModalState} menuState={menuState} setMenuState={setMenuState} NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
-            <LogInModal logState={logModalState} setLogState={setLogModalState} />
+            <LogInModal regState={registerModalState} setRegState={setRegisterModalState} logState={logModalState} setLogState={setLogModalState} fromReg={fromReg} setFromReg={setFromReg}/>
+            <RegistrationModal regState={registerModalState} setRegState={setRegisterModalState} logState={logModalState} setLogState={setLogModalState} setFromReg={setFromReg}/>
         </div>
     )
 }

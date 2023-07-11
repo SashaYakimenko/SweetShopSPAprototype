@@ -18,6 +18,26 @@
     pointer-events: all;
 }
 
+.LogWrapper.fromReg{
+    position:absolute;
+    z-index: 700;
+    background-color: rgba(0, 0, 0, 0.0);
+    opacity: 0;
+    pointer-events: none;
+    display:flex;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    transition: none;
+}
+
+.LogWrapper.fromReg.active{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
 .LogContent{
     position:absolute;
     top: 30%;
@@ -186,7 +206,7 @@
     position: absolute;
     top: 12px;
     left: 224px;
-    background-image: url("../../assets/icons/passRevealIcon.png");
+    background-image: url("../../../assets/icons/passRevealIcon.png");
     background-repeat: round;
     background-size: cover;
     width: 15px;
@@ -199,6 +219,25 @@
 }
 
 .LoginToggle{
+    font-family: Inter;
+    font-size: 15px;
+    margin-left: 11px;
+    position: relative; 
+    top: -17px;
+    left: 20px;
+}
+
+.RegistrationLink{
+    margin-top: 10px;
+    font-family: Inter;
+    font-size: 14px;
+    margin-left: 11px;
+    position: relative; 
+    top:-12px;
+}
+
+.ForgotLink{
+    margin-top: 10px;
     font-family: Inter;
     font-size: 14px;
     margin-left: 11px;
@@ -221,4 +260,21 @@
 .errorMessage.active{
     display:flex;
     align-items: center;
+}
+
+.checkBoxContainer div{
+    margin-left: 11px;
+    width: 15px;
+    height: 15px;
+    background-color: #757272;
+}
+
+.checkBoxContainer p{
+    cursor:pointer;
+    user-select: none;
+    display:inline-block;
+}
+
+.checkBoxContainer.active div{
+    background-color: rgb(253, 169, 143);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../LogInModal.module.css";
 
-export function MobileInput({ register, errors, bag, setBag}){
+export function MobileInput({ register, errors, bag, setBag, id}){
     const exp = /[\d]/;
     const exp2 = /^[\+]?\(?[\d]{0,3}\)?([\d]|[\s]){0,15}$/;
     var counter;
@@ -15,7 +15,7 @@ export function MobileInput({ register, errors, bag, setBag}){
             minLength: {value: 12, message: "Minimal length of password is 12 characters"},
             maxLength: {value: 21, message: "Maximal length of password is 21 character"},
             onBlur: () => {if(counter != undefined) setBag({count: counter, mode: mode});}})} 
-            type="text" id="l-m-logIn" required
+            type="text" id={id} required
 
             onFocus={() => {if(bag.count != 0) {
                 counter = bag.count;
