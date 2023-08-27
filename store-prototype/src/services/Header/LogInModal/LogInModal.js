@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./LogInModal.module.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MobileInput } from "./MobileInput/MobileInput.js";
 
 export function LogInModal ({logState, setLogState, regState, setRegState, fromReg, setFromReg})
@@ -11,6 +11,7 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
     const [checkBoxState, setCheckBoxState] = React.useState(false);
     const [mobileInputBag, setMobileInputBag] = React.useState({count: 0, mode: 0});
     const nestsInputRefs = React.useRef();
+
     const {formState:{dirtyFields, errors, isValid, isSubmitted}, register, handleSubmit, reset, setFocus} = useForm({
         mode:"onBlur",
         defaultValues:{
@@ -18,6 +19,8 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
             password:''
         }
     });
+
+    const nav = useNavigate();
 
     function ValidateSuccess(data){
         if(!data?.login.includes("@"))
@@ -27,6 +30,7 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
         }
         //need to process 
         console.log(data);
+       
     }
 
     function PassValidateNumberNeedRule(value){
@@ -60,7 +64,11 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
 
     return(
         <div className={(logState)? styles.LogWrapper + ` ${styles.active}` + ((fromReg)? ` ${styles.fromReg}` : "") : styles.LogWrapper + ((fromReg)? ` ${styles.fromReg}` : "")} onMouseDown={(e) => {setFromReg(false);
-            setLogState(false);}}>
+            setLogState(false);
+            reset();
+            setLoginMode(true);
+            setCheckBoxState(false) 
+            setMobileInputBag({count:0, mode:0})}}>
             <div className={(logState)? styles.LogContent + ` ${styles.active}` : styles.LogContent} onMouseDown={(e) => {e.stopPropagation();}}>
                 <div className={styles.LogTitle}><h2>Log in</h2></div>
                 <div className={styles.Line} />
@@ -85,15 +93,25 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
                             <label htmlFor="l-m-password">Password</label>
                             <div className={(errors?.password) ? styles.errorMessage + " " + styles.active : styles.errorMessage }>{(errors?.password) && <p>{errors?.password?.message ?? "Password error"}</p>}</div>
                         </div>
-                        <div className={(checkBoxState) ? styles.checkBoxContainer + ` ${styles.active}` : styles.checkBoxContainer} onClick={() => {setCheckBoxState((prev) => {
-                            if(!prev) return true;
-                            else return false;
-                        })}}>
-                            <div/>
-                            <p className={styles.LoginToggle} onClick={() => {(loginMode)? setLoginMode(false) : setLoginMode(true) }}>{"Log in using phone"}</p>
+                        <div className={(checkBoxState) ? styles.checkBoxContainer + ` ${styles.active}` : styles.checkBoxContainer}>
+                            <div onClick={() => {
+                                setCheckBoxState((prev) => {
+                                    if(!prev) return true;
+                                    else return false;
+                                })
+                                if(loginMode)setLoginMode(false); 
+                                else setLoginMode(true); }}/>
+                            <p className={styles.LoginToggle} onClick={() => {
+                                setCheckBoxState((prev) => {
+                                    if(!prev) return true;
+                                    else return false;
+                                })
+                                if(loginMode)setLoginMode(false); 
+                                else setLoginMode(true); }}>{"Log in using phone"}</p>
                         </div>
                         <div className={styles.ButtonContainer}>
-                            <button onClick={(e) => {if(!isValid) {if(!Object.keys(errors)[0] == undefined) setFocus(Object.keys(errors)[0]);
+                            <button onClick={(e) => { nav("/account");
+                                if(!isValid) {if(!Object.keys(errors)[0] == undefined) setFocus(Object.keys(errors)[0]);
                                                                    else setFocus("password");
                                                                   e.preventDefault();}}} className={styles.SubmitButton}><p>Log in</p></button>
                         </div>

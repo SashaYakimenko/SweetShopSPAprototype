@@ -267,6 +267,7 @@
     width: 15px;
     height: 15px;
     background-color: #757272;
+    cursor: pointer;
 }
 
 .checkBoxContainer p{

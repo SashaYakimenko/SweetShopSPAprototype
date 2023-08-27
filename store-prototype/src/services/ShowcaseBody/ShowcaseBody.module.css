@@ -1,0 +1,534 @@
+.showcaseWrapper{
+    display:flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    min-height: auto;
+    padding-bottom: 55px;
+}
+
+.showcaseContent{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    flex: 0 1 1500px;
+    height: auto;
+    background-color: white;
+    box-shadow: -1px -1px 12px rgba(0, 0, 0, 0.05), 1px 1px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 55px;
+    padding-bottom: 25px;
+}
+
+.productSection{
+    display:flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 609px;
+    width: 93.3%;
+}
+
+.addCommentWrap{
+    width: 93.3%;
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.addCommentWrap .addCommentButton{
+    border-radius: 5px;
+    position:relative;
+    top: 22.5px;
+    background-color: rgba(253, 169, 143, 1);
+    width: 100px;
+    transition: background-color, 0.3s linear;
+}
+
+.addCommentWrap .addCommentButton:hover{
+    background-color: rgb(253, 149, 117);
+}
+
+.addCommentWrap .addCommentButton :is(.vertical, .horizontal){
+    background-color: white;
+    position: absolute;
+    border-radius: 2px;
+}
+
+.addCommentWrap .addCommentButton .vertical{
+    left: 47.5px;
+    top: 12.5px;
+    height: 25px;
+    width: 5px;
+}
+
+.addCommentWrap .addCommentButton .horizontal{
+    left: 37.5px;
+    top: 22.5px;
+    height: 5px;
+    width: 25px;
+}
+
+.commentSection{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items:center;
+    flex: 0 0 auto;
+    width: 93.3%;
+    margin-top: 40px;
+}
+
+.borderRight, .borderLeft{
+    flex: 0 0 140px;
+}
+
+.line{
+    margin-top: 20px;
+    height: 10px;
+    width: 93.3%;
+    background-color: rgb(253, 169, 143, 0.5);
+}
+
+.productImageWrapper{
+    flex: 0 0 699.75px;
+    height: 609px;
+}
+
+.productInfo{
+    flex: 0 1 50%;
+    min-height: 609px;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.productImage{
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.floatingInterceptorWrap{
+    display:flex;
+    flex-flow: row nowrap;
+}
+
+.productTitle{
+    padding: 10px;
+    margin-top: 25px;
+    height: auto;
+    flex: 0 1 639.6075px;
+    background-color: #FFF2C6;
+    border-radius:5px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+}
+
+.floatingInterceptorWrap{
+    margin-left:40px;
+}
+
+.productTitleText{
+    font-size: 28px;
+    font-weight: 500;
+    font-family: Ubuntu;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.productSubTitleText, .productPriceText{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+
+.productPriceText{
+    margin: auto 0px;
+    white-space: nowrap;
+}
+
+.productSubTitleText{
+    width: 100%;
+}
+
+.productInteraction{
+    display:inline-block;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-top: 25px;
+    height: auto;
+    width:auto;
+    background-color: #FFF2C6;
+    border-radius:5px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.productDescription{
+    height: 340px;
+    flex: 0 1 639.6075px;
+    padding:10px;
+    margin-top: 25px;
+    background-color: #FFF2C6;
+    border-radius:5px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+}
+
+.productDescription p{
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.newComment{
+    padding: 0px;
+    padding-left: 10px;
+    line-height: 21px;
+    resize: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+    color: #494949;
+    display:block;
+    background-color:#fce8a2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    outline: none;
+    max-height: 125px;
+    width: 100%;
+    box-shadow: -1px -1px 12px rgba(0, 0, 0, 0.05), 1px 1px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.commentTextWrapper{
+    position:relative;
+}
+
+.commentField .valueSpaceWrap{
+    width: 100%;
+    background-color: rgb(255 242 198);
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 25px;
+}
+
+.commentField form {
+    margin-top:30px;
+}
+
+.commentField{
+    width: 89.1%;
+}
+
+.commentField form label{
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    font-size: 16px;
+    font-family: Ubuntu;
+    color: #757272;
+    transition: top 0.05s linear;
+}
+
+.commentField form button{
+    margin-top:10px;
+    padding: 5px 15px;
+    border: 1px solid rgb(253, 169, 143);
+    background-color:rgba(253, 169, 143, 1);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+    color: white;
+    transition: background-color 0.15s linear;
+}
+
+.commentField form button:hover{
+    background-color:rgb(255, 158, 129);
+    cursor: pointer;
+}
+
+.commentField .active.commentTextWrapper label{
+    top: -18px;
+    color: rgb(253, 169, 143, 1);
+    text-shadow: 0px -1px 0px rgb(253, 169, 143, 0.15), 0px 1px 0px rgb(253, 169, 143, 0.15), -1px 0px 0px rgb(253, 169, 143, 0.15), 1px 0px 0px rgb(253, 169, 143, 0.15);
+}
+
+.commentField .commentTextWrapper .newComment:valid ~ label{
+    top: -18px;
+}
+
+.commentTextWrapper::after{
+    display:block;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(253, 169, 143, 1);
+    transition: width 0.3s ease-in-out;
+    content: "";
+}
+
+.active.commentTextWrapper::after{
+    width:100%;
+}
+
+.profileMark{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Inter;
+    margin-bottom: 10px;
+}
+
+.profileMark .profileLink{
+    color: #5285cc;
+    cursor: pointer;
+    transition: color 0.1s linear;
+}
+
+.profileMark .profileLink:hover{
+    color: #3d6eb4;
+}
+
+.countBlock, .productPriceText{
+    display: inline-block;
+}
+
+.countWrapper{
+    position: relative;
+    top:-2px;
+    text-align: center;
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Ubuntu;
+}
+
+.countBlock{
+    position: relative;
+    margin: 0px 10px;
+    top: 4px;
+}
+
+.countWrapper{
+    margin: 0px;
+}
+
+.minus, .plus, .count, .price{
+    display: inline-block;
+}
+
+
+.plus{
+    position: absolute;
+    top: -0.4px;
+    left: 55px;
+    height: 18.8px;
+    width: 22px;
+    background-image: url("../../assets/icons/plusIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+    filter: brightness(0);
+}
+
+.clicked{
+    filter: drop-shadow(0px 0px 1px rgb(48, 47, 47));
+}
+
+.plus:hover, .minus:hover{
+    cursor:pointer;
+}
+
+.minus{
+    position:absolute;
+    top:0.5px;
+    left: 5px;
+    height: 16.8px;
+    width: 20px;
+    background-image: url("../../assets/icons/minusIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+}
+
+.underline{
+    margin-bottom: 5px;
+    height: 3px;
+    width: 80px;
+    background-color: #FDA98F;
+}
+
+.addToCartButton{
+    display:inline-block;
+    position: relative;
+    height: 40px;
+    width: auto;
+    padding-right: 45px;
+    background-color: #FDA98F;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    transition: all 0.1s linear;
+}
+
+.addToCartButton p{
+    font-family: Ubuntu;
+    color:white;
+    font-size: 18.76px;
+    font-weight: 400;
+    padding-left: 2px;
+}
+
+.addToCartIcon{
+    width:29px;
+    height:43px;
+    position:absolute;
+    top:0px;
+    left:92px;
+    background-image: url("../../assets/icons/addToCartIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+    filter:none;
+    transition: filter 0.1s linear;
+}
+
+.addToCartButton:hover{
+    background-color: rgb(252, 162, 134);
+    box-shadow: 1px 1px 8px rgb(252, 162, 134, 0.3), -1px -1px 8px rgb(252, 162, 134, 0.3);
+    cursor: pointer;
+}
+
+.addToCartButton:hover .addToCartIcon{
+    filter: invert(100%);
+}
+
+.selectButton{
+    position:relative;
+    display:inline-block;
+    margin-left:5px;
+    width:29px;
+    height:40px;
+    outline:0;
+    border:0;
+    background-color: transparent;
+}
+
+.selectButton:hover{
+    cursor: pointer;
+}
+
+.selectButton:hover .selectIcon{
+    filter: invert(57%) sepia(45%) saturate(4792%) hue-rotate(328deg) brightness(101%) contrast(102%) drop-shadow(0px 0px 1px #ff6051);
+}
+
+.selectIcon{
+    width:29px;
+    height:43px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-image: url("../../assets/icons/selectedIcon.svg");
+    background-repeat: round;
+    background-size: cover;
+    filter: invert(69%) sepia(45%) saturate(487%) hue-rotate(322deg) brightness(103%) contrast(98%) drop-shadow(0px 0px 1px #FDA98F);
+    transition: filter 0.1s linear;
+}
+
+.inlineBreakLineFix{
+    display:inline-flex;
+    flex-flow: row nowrap;
+}
+
+.interactionForm{
+    flex: 0 0 auto;
+}
+
+
+@media(max-width: 1500px){
+    .borderRight, .borderLeft{
+        flex: 0 2 120px;
+    }
+}
+@media(max-width: 1200px){
+    .productImageWrapper{
+        flex: 0 0 559.8px;
+    }
+}
+@media(max-width: 1000px){
+    .productImageWrapper{
+        flex: 0 0 419.85px;
+    }
+}
+@media(max-width: 768px)
+{
+    .borderLeft{
+        flex: 0 0 0px;
+    }
+
+    .borderRight{
+        display:none;
+    }
+
+    .showcaseWrapper{
+        justify-content: flex-start;
+    }
+
+    .showcaseContent{
+        margin: 0;
+        flex: 0 2 1500px;
+    }
+
+    .productSection{
+        flex-flow: column nowrap;
+        max-width: 768px;
+        align-items: stretch;
+        width:100%;
+    }
+
+    .productImageWrapper{
+        align-self: center;
+    }
+
+    .productTitle, .productDescription, .productInteraction{
+        flex: 0 1 768px;
+        margin: 0px 20px;
+        margin-bottom: 15px;
+    }
+
+    .productInteraction{
+        justify-content: center;
+        display:flex !important;
+    }
+
+    .floatingInterceptorWrap{
+        margin: 0px;
+        display:flex !important;
+    }
+
+    .adaptiveColumn{
+        flex-flow: column nowrap;
+    }
+
+    .productImageWrapper{
+        max-height: 500px;
+    }
+
+    .productImageWrapper img{
+        margin: 0;
+    }
+
+    .productInfo{
+        min-height: 0;
+        flex: none;
+    }
+}
+
+@media(max-width: 500px)
+{
+    .productImageWrapper{
+        max-height: 400px;
+    }
+}
+
+@media(max-width: 450px)
+{
+    .productImageWrapper{
+        max-height: 325px;
+    }
+}

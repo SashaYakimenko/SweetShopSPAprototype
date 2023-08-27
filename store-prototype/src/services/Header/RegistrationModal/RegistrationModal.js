@@ -73,7 +73,12 @@ export function RegistrationModal ({regState, setRegState, logState, setLogState
 
     return(
             <div className={(regState)? styles.RegWrapper + ` ${styles.active}`:styles.RegWrapper} onMouseDown={(e) => {setRegState(false);
-                setFromReg(false);}}>
+                setFromReg(false);
+                reset();
+                setLoginMode(true);
+                setCheckBoxState({first:false, second:false, third: false});
+                setRegMobileInputBag({count: 0, mode: 0});
+                }}>
                     <div className={(regState)? styles.RegContent + ` ${styles.active}`:styles.RegContent} onMouseDown={(e) => {e.stopPropagation();}}>
                         <div className={styles.RegTitle}><h2>Sign up</h2></div>
                         <div className={styles.RegLine} />
@@ -89,7 +94,7 @@ export function RegistrationModal ({regState, setRegState, logState, setLogState
                                 </div>
                                 <div className={styles.regSecondGroup}>
                                     <input {...register("fullName", {required:"This field is required",
-                                                                    maxLength: {value: 40, message: "Maximal length of password is 40 characters"},
+                                                                    maxLength: {value: 40, message: "Maximal length of full name is 40 characters"},
                                                                     pattern: {value:/^[^\d\s]{2,}\s(?:[^\d\s]{2,}\s)?[^\d\s]{2,}\s?$/, message: "Incorrect name value"},
                                                                     validate: {NameValidateRule}
                                                                      })} className={(errors?.fullName) ? styles.RegNameInput + " " + styles.notValid : styles.RegNameInput} type="text" id="r-m-fullName" required></input>
@@ -120,28 +125,48 @@ export function RegistrationModal ({regState, setRegState, logState, setLogState
                                     <div className={(errors?.confirmPass) ? styles.regErrorMessage + " " + styles.active : styles.regErrorMessage }>{(errors?.confirmPass) && <p>{errors?.confirmPass?.message ?? "Password confirmation error"}</p>}</div>
                                 </div>
 
-                                <div className={(checkBoxState.first) ? styles.checkBoxContainer + ` ${styles.active}` : styles.checkBoxContainer} onClick={() => {setCheckBoxState((prev) => {
-                                    if(!prev.first) return {...checkBoxState, first: true};
-                                    else return {...checkBoxState, first: false};
-                                })}}>
-                                    <div/>
-                                    <p className={styles.toggle} onClick={() => {(loginMode)? setLoginMode(false) : setLoginMode(true) }}>{"Sign up using phone"}</p>
+                                <div className={(checkBoxState.first) ? styles.checkBoxContainer + ` ${styles.active}` : styles.checkBoxContainer}>
+                                    <div onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.first) return {...checkBoxState, first: true};
+                                            else return {...checkBoxState, first: false};})
+                                        if(loginMode) setLoginMode(false);
+                                        else setLoginMode(true);
+                                        }}/>
+                                    <p className={styles.toggle} onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.first) return {...checkBoxState, first: true};
+                                            else return {...checkBoxState, first: false};})
+                                        if(loginMode) setLoginMode(false);
+                                        else setLoginMode(true);
+                                        }}>{"Sign up using phone"}</p>
                                 </div>
 
-                                <div className={(checkBoxState.second) ? styles.privacyCheckBoxContainer + ` ${styles.active}` : styles.privacyCheckBoxContainer} onClick={() => {setCheckBoxState((prev) => {
-                                    if(!prev.second) return {...checkBoxState, second: true};
-                                    else return {...checkBoxState, second: false};
-                                })}}>
-                                    <div/>
-                                    <p className={styles.toggle} onClick={() => {}}>{"Agree with "}<Link onClick={(e) => {e.stopPropagation();}}>privacy policy</Link></p>
+                                <div className={(checkBoxState.second) ? styles.privacyCheckBoxContainer + ` ${styles.active}` : styles.privacyCheckBoxContainer}>
+                                    <div onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.second) return {...checkBoxState, second: true};
+                                            else return {...checkBoxState, second: false};})
+                                        }}/>
+                                    <p className={styles.toggle} onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.second) return {...checkBoxState, second: true};
+                                            else return {...checkBoxState, second: false};})
+                                        }}
+                                        >{"Agree with "}<Link onClick={(e) => {e.stopPropagation();}}>privacy policy</Link></p>
                                 </div>
 
-                                <div className={(checkBoxState.third) ? styles.newsCheckBoxContainer + ` ${styles.active}` : styles.newsCheckBoxContainer} onClick={() => {setCheckBoxState((prev) => {
-                                    if(!prev.third) return {...checkBoxState, third: true};
-                                    else return {...checkBoxState, third: false};
-                                })}}>
-                                    <div/>
-                                    <p className={styles.toggle} onClick={(e) => {}}>{"Subscribe to the newslatter"}</p>
+                                <div className={(checkBoxState.third) ? styles.newsCheckBoxContainer + ` ${styles.active}` : styles.newsCheckBoxContainer}>
+                                    <div onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.third) return {...checkBoxState, third: true};
+                                            else return {...checkBoxState, third: false};})
+                                        }}/>
+                                    <p className={styles.toggle} onClick={() => {
+                                        setCheckBoxState((prev) => {
+                                            if(!prev.third) return {...checkBoxState, third: true};
+                                            else return {...checkBoxState, third: false};})
+                                        }}>{"Subscribe to the newslatter"}</p>
                                 </div>
 
                                 <div className={styles.regButtonContainer}>

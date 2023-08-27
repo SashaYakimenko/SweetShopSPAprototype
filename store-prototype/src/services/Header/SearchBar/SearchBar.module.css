@@ -25,6 +25,7 @@
     background-color: rgba(120, 170, 216, 1);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    margin-right: 10px;
     border: none;
     flex: 0 0 50px;
     position: relative;

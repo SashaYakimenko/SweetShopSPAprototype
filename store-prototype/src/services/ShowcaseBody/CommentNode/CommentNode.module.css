@@ -1,0 +1,395 @@
+.commentContent{
+    width: 95.5%;
+    flex: 0 0 auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.05), -2px -2px 12px 0px rgba(0, 0, 0, 0.05);
+    background-color: #FFF2C6;
+    padding: 15px;
+}
+
+.question{
+    display:flex;
+    flex-flow: row nowrap;
+    height:auto;
+}
+
+.answer{
+    display:flex;
+    flex-flow: row nowrap;
+    height:auto;
+    margin-top: 10px;
+}
+
+.answer .author{
+    flex: 0 2 275px;
+    height:70px;
+}
+
+.answer .author h3{
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.answer .body{
+    flex: 1 1 685px;
+    height: auto;
+}
+
+.answer .date{
+    min-height: 30px;
+    margin-bottom: 10px;
+}
+
+.answer .body :is(.date, .message) p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+
+.answer .body .date p{
+    color: #757272;
+}
+
+.answer .reaction{
+    flex: 0 1 110px;
+    display:flex;
+    align-items: center;
+    position: relative;
+}
+
+.answer .reaction :is(.likeButton, .dislikeButton){
+    background-repeat: round;
+    background-size:cover;
+    z-index:200;
+    width:28px;
+    height:33px;
+    transition: filter 0.1s linear;
+}
+
+.answer .reaction :is(.likeButton, .dislikeButton, .likeCounter, .dislikeCounter) {
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+
+.answer .likeCounter{
+    margin-right: 10px;
+}
+
+.answer .reaction .likeButton{
+    background-image: url("../../../assets/icons/LikeIcon.png");
+    margin-left: 20px;
+}
+
+.answer .reaction .likeButton:hover{
+    filter: invert(72%) sepia(47%) saturate(400%) hue-rotate(67deg) brightness(91%) contrast(92%)
+}
+
+.answer .reaction .dislikeButton:hover{
+    filter: invert(52%) sepia(9%) saturate(2707%) hue-rotate(313deg) brightness(89%) contrast(100%);
+}
+
+.answer .reaction .dislikeButton{
+    background-image: url("../../../assets/icons/DislikeIcon.png");
+    transform: scaleX(-1);
+}
+
+.question .author{
+    flex: 0 2 275px;
+    height:70px;
+    margin-right: 10px;
+}
+
+.question .author h3{
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.question .body{
+    flex: 1 1 685px;
+    height: auto;
+}
+
+.question .date{
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.question .body :is(.date, .message) p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+
+.question .body .date p{
+    color: #757272;
+}
+
+.question .reaction{
+    flex: 0 1 110px;
+    display:flex;
+    align-items: center;
+    position: relative;
+}
+
+.question .reaction :is(.likeButton, .dislikeButton){
+    background-repeat: round;
+    background-size:cover;
+    z-index:200;
+    width:28px;
+    height:33px;
+    transition: filter 0.1s linear;
+}
+
+.question .reaction :is(.likeButton, .dislikeButton, .likeCounter, .dislikeCounter) {
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Ubuntu;
+}
+
+.question .likeCounter{
+    margin-right: 10px;
+}
+
+.question .reaction .likeButton{
+    background-image: url("../../../assets/icons/LikeIcon.png");
+    margin-left: 20px;
+}
+
+.question .reaction .likeButton:hover{
+    filter: invert(72%) sepia(47%) saturate(400%) hue-rotate(67deg) brightness(91%) contrast(92%)
+}
+
+.question .reaction .dislikeButton:hover{
+    filter: invert(52%) sepia(9%) saturate(2707%) hue-rotate(313deg) brightness(89%) contrast(100%);
+}
+
+.question .reaction .dislikeButton{
+    background-image: url("../../../assets/icons/DislikeIcon.png");
+    transform: scaleX(-1);
+}
+
+.question .body .answerDownButton{
+    position:relative;
+    top: 6.5px;
+    left: -3px;
+    display: inline-block;
+    background-image: url("../../../assets/icons/Expandicon.svg");
+    background-repeat: round;
+    background-size:cover;
+    width: 30px;
+    height: 20px;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(10%) saturate(1767%) hue-rotate(174deg) brightness(89%) contrast(90%);
+    transition: all 0.1s linear;
+}
+
+.question .body .answerWrapper p{
+    font-family: Ubuntu;
+    font-weight: 400;
+    font-size: 16px;
+    color: #78AAD8;
+    text-decoration: underline;
+    transition: color 0.1s linear; 
+}
+.question .body .answerWrapper .answerLink{
+    display: inline-block;
+}
+.question .body .answerWrapper{
+    margin-top:3px;
+}
+
+.activeAnswerWrapper .active.answerDownButton{
+    transform: rotate(180deg);
+}
+
+.activeAnswerWrapper{
+    display:inline-block;
+}
+
+.activeAnswerWrapper:hover{
+    cursor:pointer;
+    color:#4b81b3;
+    filter: brightness(0) saturate(100%) invert(46%) sepia(90%) saturate(307%) hue-rotate(167deg) brightness(86%) contrast(85%);
+}
+
+.question .body .answerWrapper .answerCounter{
+    display:inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+    color: #757272;
+    user-select: none;
+}
+
+.commentAnswers{
+    margin-top: 25px;
+}
+
+.commentWrap{
+    display:flex;
+    flex-flow: row nowrap;
+}
+
+.commentInterceptor{
+    flex: 0 2 275px;
+    height: auto;
+}
+
+.commentField{
+    flex: 1 1 795px;
+}
+
+.newComment{
+    padding: 0px;
+    padding-left: 10px;
+    line-height: 21px;
+    resize: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+    color: #494949;
+    display:block;
+    background-color:#fce8a2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    outline: none;
+    max-height: 125px;
+    width: 100%;
+    box-shadow: -1px -1px 12px rgba(0, 0, 0, 0.05), 1px 1px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.commentTextWrapper{
+    position:relative;
+}
+
+.commentWrap .commentField form {
+    margin-top:30px;
+}
+
+.commentWrap .commentField form label{
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    font-size: 16px;
+    font-family: Ubuntu;
+    color: #757272;
+    transition: top 0.05s linear;
+}
+
+.commentWrap .commentField form button{
+    margin-top:10px;
+    padding: 5px 15px;
+    border: 1px solid rgb(253, 169, 143);
+    background-color:rgba(253, 169, 143, 1);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Ubuntu;
+    color: white;
+    transition: background-color 0.15s linear;
+}
+
+.commentWrap .commentField form button:hover{
+    background-color:hwb(14 51% 0%);
+    cursor: pointer;
+}
+
+.commentWrap .commentField .active.commentTextWrapper label{
+    top: -18px;
+    color: rgb(253, 169, 143, 1);
+    text-shadow: 0px -1px 0px rgb(253, 169, 143, 0.15), 0px 1px 0px rgb(253, 169, 143, 0.15), -1px 0px 0px rgb(253, 169, 143, 0.15), 1px 0px 0px rgb(253, 169, 143, 0.15);
+}
+
+.commentWrap .commentField .commentTextWrapper .newComment:valid ~ label{
+    top: -18px;
+}
+
+.commentTextWrapper::after{
+    display:block;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(253, 169, 143, 1);
+    transition: width 0.3s ease-in-out;
+    content: "";
+}
+
+.active.commentTextWrapper::after{
+    width:100%;
+}
+
+.profileMark{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Inter;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.profileMark .profileLink{
+    color: #5285cc;
+    cursor: pointer;
+    transition: color 0.1s linear;
+}
+
+.profileMark .profileLink:hover{
+    color: #3d6eb4;
+}
+
+@media(max-width:500px)
+{
+    .question{
+        flex-flow: column nowrap;
+    }
+
+    .author{
+        flex: none !important;
+        height: 35px !important;
+    }
+    
+    .body{
+        flex: none !important;
+    }
+
+    .reaction{
+        flex: none !important;
+        justify-content: end;
+    }
+
+    .answer{
+        flex-flow: column nowrap;
+    }
+
+    .answer .author{
+        flex: none !important;
+        height: 35px !important;
+    }
+    
+    .answer .body{
+        flex: none !important;
+    }
+
+    .answer .reaction{
+        flex: none !important;
+        justify-content: end;
+    }
+
+    .reaction :is(.likeButton, .likeCounter, .dislikeButton, .dislikeCounter){
+        margin-top: 0px !important;
+    }
+
+    .answer .reaction :is(.likeButton, .likeCounter, .dislikeButton, .dislikeCounter){
+        margin-top: 0px !important;
+    }
+
+    .commentAnswers{
+        margin-top: 10px;
+    }
+}

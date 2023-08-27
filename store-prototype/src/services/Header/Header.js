@@ -7,7 +7,7 @@ import { MenuModal } from "./AdaptiveMenuModal/MenuModal.js";
 import { LogInModal } from "./LogInModal/LogInModal.js";
 import { RegistrationModal } from "./RegistrationModal/RegistrationModal.js"
 
-export function Header()
+export function Header({setAccModalActive, mobileEnteredState})
 {
     var nav = useNavigate();
     const [menuState, setMenuState] = React.useState(false);
@@ -20,7 +20,8 @@ export function Header()
             <div className={styles.desktopContentContainer}> 
                 <div className={styles.headerContainer + " adaptiveWrapper"}>
                     {(menuState) ? <div className={styles.mobileMenuButtonActive} onClick={() => {if (menuState === true) setMenuState(false)
-                        else setMenuState(true)}}/> : <div className={styles.mobileMenuButton} onClick={() => {if (menuState === true) setMenuState(false)
+                        else setMenuState(true)}}/> : <div className={styles.mobileMenuButton} onClick={() => {if(setAccModalActive && mobileEnteredState) setAccModalActive(false)
+                            if (menuState === true) setMenuState(false)
                             else setMenuState(true)}}/> }
                     <div className={styles.header}>
                         <p className={styles.title} onClick={(e) => {nav("/")}}>Candice Candies</p>
@@ -31,8 +32,7 @@ export function Header()
                     </div>
                     <div className={styles.interceptor} />
                     <div onClick={(e) => {nav("/ordering")}} className={styles.cart} />
-                    <div onClick={(e) => {nav("/account");
-                                          setLogModalState(true);}} className={styles.personalAcc} />
+                    <div onClick={(e) => {setLogModalState(true);}} className={styles.personalAcc} />
                     <div className={styles.mobileSearchButton}></div>
                 </div>
                 <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>

@@ -66,7 +66,6 @@
 
 .interceptor{
     flex: 0 6 360px;
-    min-width: 40px;
 }
 
 .titleInterceptor{
@@ -121,4 +120,42 @@
 .mobileMenuButtonActive:hover{
     filter:invert(100%);
     cursor: pointer;
+}
+
+@media(max-width:600px){
+
+    .interceptor{
+        flex: 0 10 50px;
+    }
+
+    .titleInterceptor{
+        display:none;
+    }
+
+    .cart, .mobileSearchButton{
+        margin-right: 10px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .mobileMenuButton{
+        height: 30px !important;
+        flex-basis: 30px !important;
+    }
+
+    .cart{
+        height: 47px !important;
+        flex-basis: 43.2px !important;
+    }
+
+    .mobileSearchButton{
+        height: 32px !important;
+        flex-basis: 43.2px !important;
+    }
+    
+    .title{
+        font-size: 2rem;
+    }
 }

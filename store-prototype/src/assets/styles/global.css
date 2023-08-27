@@ -68,13 +68,13 @@ select {
 }
 
 
-.mainWrapper{
+.mainWrapper, .showcaseWrapper, .accountWrapper{
     position:relative;
     background-color: #EAF4FD;
     min-height: 100vh;
 }
 
-.mainWrapper main .modalWrapper{
+:is(.mainWrapper, .showcaseWrapper, .accountWrapper) main .modalWrapper{
     position:absolute;
     width: 100%;
     min-height: 100vh;
@@ -94,25 +94,25 @@ select {
 
 @media (max-width: 1025px)
 {
-  .mainWrapper header .adaptiveWrapper > :is(div:nth-last-of-type(2), div:nth-last-of-type(5)){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > :is(div:nth-last-of-type(2), div:nth-last-of-type(5)){
     display: none;
   }
 
-  .mainWrapper header .adaptiveWrapper > div:nth-last-of-type(4){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(4){
     flex: 1 6 270px;
   }
 
-  .mainWrapper header .adaptiveWrapper > div:nth-last-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(1){
     display:block;
   }
 
-  .mainWrapper header .adaptiveWrapper > div:nth-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-of-type(1){
     display:block;
     position:relative;
     top: -2px;
   }
 
-  .mainWrapper header .adaptiveNav{
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveNav{
     display:none;
   }
 
@@ -127,21 +127,21 @@ select {
       font-size: 11.5px;
     }
   
-  .mainWrapper .adaptiveWrapper{
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) .adaptiveWrapper{
     height: 75px;
   }
   
-  .mainWrapper header .adaptiveWrapper > div:nth-last-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(1){
     height: 40.90px;
     flex-basis: 54.54px;
   }
 
-  .mainWrapper header .adaptiveWrapper > div:nth-last-of-type(3){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(3){
     height:63.63px;
     flex-basis: 54.54px;
   }
 
-  .mainWrapper header .adaptiveWrapper > div:nth-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-of-type(1){
     height: 40.90px;
     flex-basis: 40.90px;
   }

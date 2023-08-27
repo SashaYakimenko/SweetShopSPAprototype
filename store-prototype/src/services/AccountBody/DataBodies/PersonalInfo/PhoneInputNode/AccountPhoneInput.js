@@ -1,14 +1,13 @@
 import React from "react";
-import styles from "../LogInModal.module.css";
+import styles from "../PersonalInfoDataBody.module.css";
 
-export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => {
+export const AccountPhoneInput = React.memo(({register, errors, bag, setBag, id, callBack, setActiveState}) => {
     const exp = /[\d]/;
     const exp2 = /^[\+]?\(?[\d]{0,3}\)?([\d]|[\s]){0,15}$/;
     const [fromPaste, setFromPaste] = React.useState(false);
     var counter;
     var toggle = false;
     var mode;
-    console.log("rerender");
 
     React.useEffect(() => {if(fromPaste){
         counter = bag.count;
@@ -16,22 +15,27 @@ export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => 
     }}, [fromPaste])
 
     return(
-        <input autoComplete={"off"} className={(errors?.login) ? styles.LogInInput + " " + styles.notValid : styles.LogInInput} { ...register("login", {required:"This field is required",
-            pattern: {value:/^[\+]?\(?[\d]{0,3}\)?\s[\d]{0,2}\s[\d]{0,3}\s[\d]{0,2}\s[\d]{0,2}$/, message:"You have to enter valid phone number"},
+        <input autoComplete={"off"} className={(errors?.phone) ? styles.phoneInput + " " + styles.notValid : styles.phoneInput} { ...register("phone", {required:"This field is required",
+            pattern: {value:/^[\+]?\(?[\d]{0,3}\)?\s[\d]{0,2}\s[\d]{0,3}\s[\d]{0,2}\s[\d]{0,2}$/, message:"You have to enter valid phone number format"},
             minLength: {value: 12, message: "Minimal length of phone number is 12 characters"},
             maxLength: {value: 21, message: "Maximal length of phone number is 21 character"},
-            onBlur: () => {if(counter != undefined) setBag({count: counter, mode: mode});}})} 
+            onBlur: () => {
+                if(counter != undefined) setBag({count: counter, mode: mode});
+                callBack();
+            }})} 
             type="text" id={id} required
 
             onFocus={() => {if(bag.count != 0) {
                 counter = bag.count;
                 mode = bag.mode;
-            }}}
-
+            }
+            setActiveState(true);
+        }}
             onKeyDown={(e)=>{
                 if(e.keyCode == "18" || e.keyCode == "17" || e.keyCode == "39" || e.keyCode == "37") return;
                 if(e.keyCode == "8" && (!(e.target.value[5] == ")" && e.target.value[6] == undefined) && (!(e.target.value[0] == "+" && e.target.value[1] == undefined)) )) {
-                    if(counter > 1 && (exp.test(e.target.value[e.target.value.length - 1]))) counter--;
+                    if(counter > 1 && (exp.test(e.target.value[e.target.value.length - 1]))){
+                        counter--;}
                     toggle = true;
                     return;
                 }
@@ -81,20 +85,23 @@ export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => 
                     if(e.key == "0"){
                         e.target.value = "+(38";
                         mode = 0;
+                        counter = 1;
+                        if(counter == 1 && e.target.value[5] != ")" && e.target.value[1] == "(" && mode == 0){
+                            e.target.value = "+(380) ";
+                            e.preventDefault();
+                        }
                     }
-                    else mode = 1;
-                    counter = 0;}
+                    else {mode = 1;
+                    counter = 0;}}
                     else if(e.target.value[0] == "+" && e.key == "+") e.preventDefault();
 
             }} onInput={(e)=>{if(mode == 0) {
                 if(!toggle) counter++;
-                console.log(counter);
                 toggle = false;
                 if(counter == 1 && e.target.value[5] != ")" && e.target.value[1] == "(" && mode == 0)e.target.value = e.target.value + ") ";
             }
             else if(mode == 1) {
                 if(!toggle) counter++;
-                console.log(counter);
                 toggle = false;
             }}} onPaste={(e)=>{
                 var value = e.clipboardData.getData('text/plain');
@@ -115,13 +122,13 @@ export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => 
                         else if(pcounter == 10) temp = temp + " ";
                     }
                     if(pcounter == 3 && ((value[i] == ")" && exp.test(value[i + 1])) || (value[i] == " " && exp.test(value[i + 1])))) temp = temp + " ";
-                }
-                
+                }   
                 e.target.value = temp;
                 setFromPaste(true);
                 setBag({count: pcounter, mode: 1})
                 e.preventDefault();
             }}
+
             ></input>
     )
-})
+});

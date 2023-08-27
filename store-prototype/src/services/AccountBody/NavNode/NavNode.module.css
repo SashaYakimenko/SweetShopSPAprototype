@@ -1,0 +1,119 @@
+.navNode{
+    padding:5px;
+    flex: 0 0 60px;
+    width: 100%;
+    font-family: Inter;
+    font-size: 1.375em;
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    transition: box-shadow 0.1s linear;
+}
+
+.iconNode{
+    background-repeat: round;
+    background-size: cover;
+    position: absolute;
+    filter:none;
+}
+
+
+.optionName{
+    margin-left: 50px;
+}
+
+.navNode:hover .iconNode{
+    filter: invert(69%) sepia(45%) saturate(487%) hue-rotate(322deg) brightness(103%) contrast(98%);
+}
+
+.navNode:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 6px -5px rgba(0, 0, 0, 0.5), -0px -2px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.navNode.PersonalInfo:hover{
+    cursor: pointer;
+    box-shadow:  0px 2px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.navNode.Exit:hover{
+    cursor: pointer;
+    box-shadow: -0px -2px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.navNode.active div.iconNode{
+    filter:  invert(74%) sepia(71%) saturate(1016%) hue-rotate(309deg) brightness(101%) contrast(95%);
+}
+
+.navNode.active{
+    box-shadow: none !important;
+}
+
+.navNode.PersonalInfo .iconNode{
+    height:45px;
+    width:45px;
+    top: 6px;
+}
+
+.navNode.Cart .iconNode{
+    height:49px;
+    width:47px;
+    top: 4px;
+    left: 4px;
+}
+
+.navNode.Orders .iconNode{
+    height:27px;
+    width:30px;
+    left: 12px;
+}
+
+.navNode.Selected .iconNode{
+    height:35px;
+    width:40px;
+    left: 7px;
+}
+
+.navNode.Viewed .iconNode{
+    height:35px;
+    width:43px;
+    left: 4.5px;
+}
+
+.navNode.Comments .iconNode{
+    height:30px;
+    width:30px;
+    left: 10.5px;
+}
+
+.navNode.Support .iconNode{
+    height:33px;
+    width:35px;
+    left: 8px;
+}
+
+.navNode.Exit .iconNode{
+    height:32px;
+    width:41px;
+    left: 6px;
+    top: 12px;
+}
+
+@media(max-width:770px){
+    .navNode:hover{
+        cursor: pointer;
+        box-shadow: 0px 3px 6px -5px rgba(0, 0, 0, 0.6), -0px -3px 6px -5px rgba(0, 0, 0, 0.6);
+    }
+    .navNode.PersonalInfo:hover{
+        cursor: pointer;
+        box-shadow:  0px 3px 6px -5px rgba(0, 0, 0, 0.6);
+    }
+    
+    .navNode.Exit:hover{
+        cursor: pointer;
+        box-shadow: -0px -3px 6px -5px rgba(0, 0, 0, 0.6);
+    }
+}
+
