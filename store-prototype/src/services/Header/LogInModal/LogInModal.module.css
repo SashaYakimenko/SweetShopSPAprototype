@@ -279,3 +279,16 @@
 .checkBoxContainer.active div{
     background-color: rgb(253, 169, 143);
 }
+
+@media(max-height: 590px){
+    .LogContent{
+        top:10%;
+    }
+}
+
+@media(max-height: 479px){
+    .LogContent{
+        top:0px;
+        margin-top: 10px;
+    }
+}

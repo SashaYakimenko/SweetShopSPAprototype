@@ -120,10 +120,10 @@ export function AccountBody({mobileEnteredState, setMobileEnteredState, setModal
             </div>
             <div className={(modalActiveState)? styles.modalWrapper : styles.disabled + " " + styles.modalWrapper} onMouseDown={(e) => {
                 let bubbled = false;
-                e?.target?.classList.forEach((item) => { 
-                    if(!(item == styles.modalWrapper || item == styles.disabled)){bubbled = true} })
-
-                if(!bubbled){
+                e?.target?.classList.forEach((item, index, array) => { 
+                    if(!(item == styles.modalWrapper || item == styles.disabled)){bubbled = true}
+                    })
+                if(!bubbled && e.target.classList.length != 0){
                     setModalActiveState(false);
                     fromDesktopRef.current = false;
                 }}}>

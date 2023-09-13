@@ -8,6 +8,7 @@ import { PhoneInputNode } from "./PhoneInputNode/PhoneInputNode.js";
 
 export function PersonalDataBody({nickname}){
 
+    const [shrinkedState, setShrinkedState] = React.useState(false);
     const [allDataMode, setAllDataMode] = React.useState(false);
     const [nameChangingState, setNameChangingState] = React.useState(false);
     const [emailChangingState, setEmailChangingState] = React.useState(false);
@@ -73,10 +74,17 @@ export function PersonalDataBody({nickname}){
         else if(window.innerWidth > 655){
             setAdaptiveErrorMessageState(false);
         }
+        if(window.innerWidth < 560){
+            setShrinkedState(true);
+        }
+        if(window.innerWidth >= 560){
+            setShrinkedState(false);
+        }
     }
 
     React.useEffect(() => {
         window.addEventListener("resize", ResizeHandler);
+        if(window.innerWidth < 500) setShrinkedState(true);
 
         return () => {
             window.removeEventListener("resize", ResizeHandler);
@@ -86,36 +94,49 @@ export function PersonalDataBody({nickname}){
     return(
         <div className={styles.personalDataWrapper}>
             <h3 onMouseDown={() => {setNameChangingState(false)}}>Contact inforamation</h3>
-            <div className={styles.inactiveNameWrapper} style={(nameChangingState)? {display:"none"} : {display:"flex"}}>
+            <div className={(shrinkedState)? styles.columnMode + " " + styles.inactiveNameWrapper : styles.inactiveNameWrapper} style={(nameChangingState)? {display:"none"} : {display:"flex"}}>
                 <p className={styles.nameLabel}>Full name:</p>
-                <p className={styles.fullName}>{nickname}</p>
-                <p className={styles.toggle} onMouseDown={() => {
-                    if(!emailChangingState && !phoneChangingState){
-                        setValueName("firstName", nickname);
-                        setNameChangingState(true)
-                    }
-                    }}>change</p>
+                <div className={styles.solidPart}>
+                    <p className={styles.fullName}>{nickname}</p>
+                    <p className={styles.toggle} onMouseDown={() => {
+                        if(!emailChangingState && !phoneChangingState){
+                            setValueName("firstName", nickname);
+                            setNameChangingState(true)
+                        }
+                        }}>change</p>
+                </div>
             </div>
             <div className={styles.activeNameWrapper} style={(nameChangingState)? {display:"block"} : {display:"none"}}>
                 <form onSubmit={handleSubmitName(HandleNameChange, (data) => {console.log("form submit error", data)})}>
                     <div className={styles.firstBlock}>
-                        <InputNode adaptiveErrorMessageState={adaptiveErrorMessageState} errors={errorsName} stopState={stopState} setStopState={setStopState} inputActiveState={inputActiveState} setInputActiveState={setInputActiveState} register={registerName} labelValue={"First name"} registerValue={"firstName"} setFocus={setFocusName} idValue={"a-p-first"}/>
+                        <InputNode 
+                        adaptiveErrorMessageState={adaptiveErrorMessageState} 
+                        errors={errorsName} stopState={stopState} 
+                        setStopState={setStopState} inputActiveState={inputActiveState} 
+                        setInputActiveState={setInputActiveState} register={registerName} 
+                        labelValue={"First name"} 
+                        registerValue={"firstName"} 
+                        setFocus={setFocusName} 
+                        idValue={"a-p-first"}
+                        shrinkedState={shrinkedState}/>
                     </div>
                     <div style={(adaptiveErrorMessageState)? {display:"block"} : {display:"none"}} className={styles.adaptiveErrorMessage }>{(errorsName?.firstName) && <p>{errorsName?.firstName?.message ?? "First name error"}</p>}</div>
                     <div className={styles.middleBlock}>
-                        <label htmlFor={"a-p-middle"} className={styles.nameLabel}>Middle name:</label>
+                        <label style={(shrinkedState)? {display:"none"} : {display:"block"}} htmlFor={"a-p-middle"} className={styles.nameLabel}>Middle name:</label>
                         <div className={(errorsName?.middleName)? styles.notValid + " " + styles.active + " " + styles.inputWrapper : (inputActiveState.middle) ? styles.active + " " + styles.inputWrapper : styles.inputWrapper}>
                             <input type="text" required id="a-p-middle" {...registerName("middleName", {onBlur: () => {setInputActiveState({...inputActiveState, middle:false})}, required: "This field is required"} )} className={styles.middleNameInput} onFocus={() => {setInputActiveState({...inputActiveState, middle:true})}}></input>
-                            <label htmlFor={"a-p-middle"} className={(errorsName?.middleName)? styles.notValid + " " + styles.floatingDesc : styles.floatingDesc}>Middle name</label>
+                            <label style={(shrinkedState)? {display:"block"} : {display:"none"}} htmlFor={"a-p-middle"} className={(errorsName?.middleName)?  styles.notValid + " " + styles.nameLabel : styles.nameLabel } >Middle name:</label>
+                            <label htmlFor={"a-p-middle"} style={(shrinkedState)? {display:"none"} : {display:"block"}} className={(errorsName?.middleName)? styles.notValid + " " + styles.floatingDesc : styles.floatingDesc}>Middle name</label>
                         </div>
                         <div style={(adaptiveErrorMessageState)? {display:"none"} : {display:"block"}} className={styles.errorMessage }>{(errorsName?.middleName) && <p>{errorsName?.middleName?.message ?? "middle name error"}</p>}</div>
                     </div>
                     <div style={(adaptiveErrorMessageState)? {display:"block"} : {display:"none"}} className={styles.adaptiveErrorMessage }>{(errorsName?.middleName) && <p>{errorsName?.middleName?.message ?? "middle name error"}</p>}</div>
                     <div className={styles.lastBlock}>
-                        <label htmlFor={"a-p-last"} className={styles.nameLabel}>Last name:</label>
+                        <label style={(shrinkedState)? {display:"none"} : {display:"block"}} htmlFor={"a-p-last"} className={styles.nameLabel}>Last name:</label>
                         <div className={(errorsName?.lastName)? styles.notValid + " " + styles.active + " " + styles.inputWrapper : (inputActiveState.last) ? styles.active + " " + styles.inputWrapper : styles.inputWrapper}>
                             <input type="text" required id="a-p-last" {...registerName("lastName", {onBlur: () => {setInputActiveState({...inputActiveState, last:false})}, required: "This field is required"} )} className={styles.lastNameInput} onFocus={() => {setInputActiveState({...inputActiveState, last:true})}}></input>
-                            <label htmlFor={"a-p-last"} className={(errorsName?.lastName)? styles.notValid + " " + styles.floatingDesc : styles.floatingDesc}>Last name</label>
+                            <label style={(shrinkedState)? {display:"block"} : {display:"none"}} htmlFor={"a-p-middle"} className={(errorsName?.lastName)?  styles.notValid + " " + styles.nameLabel : styles.nameLabel }>Last name:</label>
+                            <label htmlFor={"a-p-last"} style={(shrinkedState)? {display:"none"} : {display:"block"}} className={(errorsName?.lastName)? styles.notValid + " " + styles.floatingDesc : styles.floatingDesc}>Last name</label>
                         </div>
                         <div style={(adaptiveErrorMessageState)? {display:"none"} : {display:"block"}} className={styles.errorMessage }>{(errorsName?.lastName) && <p>{errorsName?.lastName?.message ?? "last name error"}</p>}</div>
                     </div>
@@ -140,17 +161,29 @@ export function PersonalDataBody({nickname}){
                     </div>
                 </form>
             </div>
-            <div className={styles.inactiveEmailWrapper} style={(emailChangingState)?{ display:"none" } : { display:"flex" }}>
+            <div className={(shrinkedState)? styles.columnMode + " " + styles.inactiveEmailWrapper : styles.inactiveEmailWrapper } style={(emailChangingState)?{ display:"none" } : { display:"flex" }}>
                 <p className={styles.emailLabel}>Email address: </p>
-                <p className={styles.email}>sasaakimenko78@gmail.com</p>
-                <p className={styles.toggle} onMouseDown={() => {
-                    if(!nameChangingState && !phoneChangingState){
-                    setValueEmail("email", "sasaakimenko78@gmail.com");
-                    setEmailChangingState(true)}}}>change</p>
+                <div className={styles.solidPart}>
+                    <p className={styles.email}>sasaakimenko78@gmail.com</p>
+                    <p className={styles.toggle} onMouseDown={() => {
+                        if(!nameChangingState && !phoneChangingState){
+                        setValueEmail("email", "sasaakimenko78@gmail.com");
+                        setEmailChangingState(true)}}}>change</p>
+                </div>
             </div>
             <div className={styles.activeEmailWrapper} style={(emailChangingState)?{ display:"flex" } : { display:"none" }}>
                 <form className={styles.emailBlock} onSubmit={handleSubmitEmail(HandleEmailChange, (error) => {console.log(error)})}>
-                    <EmailInputNode adaptiveErrorMessageState={adaptiveErrorMessageState} register={registerEmail} setValue={setValueEmail} setFocus={setFocusEmail} errors={errorsEmail} inputActiveState={emailInputActiveState} setInputActiveState={setEmailInputActiveState} stopState={stopState} setStopState={setStopState}/>
+                    <EmailInputNode 
+                    adaptiveErrorMessageState={adaptiveErrorMessageState} 
+                    register={registerEmail} 
+                    setValue={setValueEmail} 
+                    setFocus={setFocusEmail} 
+                    errors={errorsEmail} 
+                    inputActiveState={emailInputActiveState} 
+                    setInputActiveState={setEmailInputActiveState} 
+                    stopState={stopState} 
+                    setStopState={setStopState}
+                    shrinkedState={shrinkedState}/>
                     <div className={styles.buttonBlock}>
                         <button className={styles.saveButton} onClick={(e) => {
                             if(!isValidEmail){
@@ -171,16 +204,27 @@ export function PersonalDataBody({nickname}){
                     </div>
                 </form>
             </div>
-            <div className={styles.inactivePhoneWrapper} style={(phoneChangingState)?{ display:"none" } : { display:"flex" }}>
+            <div className={(shrinkedState)? styles.columnMode + " " + styles.inactivePhoneWrapper : styles.inactivePhoneWrapper} style={(phoneChangingState)?{ display:"none" } : { display:"flex" }}>
                 <p className={styles.phoneLabel}>Phone: </p>
-                <p className={styles.phone}>+380 98 036 6315</p>
-                <p className={styles.toggle} onMouseDown={() => {
-                    if(!nameChangingState && !emailChangingState){
-                    setPhoneChangingState(true)}}}>change</p>
+                <div className={styles.solidPart}>
+                    <p className={styles.phone}>+380 98 036 6315</p>
+                    <p className={styles.toggle} onMouseDown={() => {
+                        if(!nameChangingState && !emailChangingState){
+                        setPhoneChangingState(true)}}}>change</p>
+                </div>
             </div>
             <div className={styles.activePhoneWrapper} style={(phoneChangingState)?{ display:"flex" } : { display:"none" }}>
                 <form className={styles.phoneBlock} onSubmit={handleSubmitPhone(HandlePhoneChange, (error) => {console.log(error)})}>
-                    <PhoneInputNode adaptiveErrorMessageState={adaptiveErrorMessageState} register={registerPhone} setFocus={setFocusPhone} errors={errorsPhone} inputActiveState={phoneInputActiveState} setInputActiveState={setPhoneInputActiveState} stopState={stopState} setStopState={setStopState}/>
+                    <PhoneInputNode 
+                    adaptiveErrorMessageState={adaptiveErrorMessageState} 
+                    register={registerPhone} 
+                    setFocus={setFocusPhone} 
+                    errors={errorsPhone} 
+                    inputActiveState={phoneInputActiveState} 
+                    setInputActiveState={setPhoneInputActiveState} 
+                    stopState={stopState} 
+                    setStopState={setStopState}
+                    shrinkedState={shrinkedState}/>
                     <div className={styles.buttonBlock}>
                         <button className={styles.saveButton} onClick={(e) => {
                             if(!isValidPhone){

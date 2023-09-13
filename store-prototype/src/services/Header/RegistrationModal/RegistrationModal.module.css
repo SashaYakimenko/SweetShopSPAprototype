@@ -286,3 +286,22 @@
 .newsCheckBoxContainer{
     margin-bottom: 10px;
 }
+
+@media(max-height: 760px){
+    .RegContent{
+        top:10%;
+    }
+}
+
+@media(max-height: 680px){
+    .RegContent{
+        top: 5%;
+    }
+}
+
+@media(max-height: 640px){
+    .RegContent{
+        margin-top: 10px;
+        top: 0;
+    }
+}

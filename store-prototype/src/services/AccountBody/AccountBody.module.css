@@ -183,3 +183,19 @@
         width:500px;
     }
 }
+
+@media(max-width:560px){
+    .dataBodyMobileModal{
+        width:400px;
+    }
+}
+
+@media(max-width:400px)
+{
+    .dataBodyMobileModal{
+        left:0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+    }
+}

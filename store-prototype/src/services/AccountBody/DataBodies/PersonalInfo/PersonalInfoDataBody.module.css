@@ -226,6 +226,7 @@
     font-weight: 400;
     margin-bottom: 15px;
     margin-left: 160px;
+    width: auto !important;
 }
 
 :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) input ~ .notValid.floatingDesc{
@@ -281,8 +282,61 @@ h3.infoTitle{
     height:101.5px;
 }
 
+.columnMode{
+    flex-flow:column nowrap !important;
+}
+
+.solidPart{
+    display: flex;
+}
+
+@media(max-width:770px){
+    .infoTitle:hover{
+        font-weight:600 !important;
+    }
+}
+
 @media(max-width:655px){
     .personalDataWrapper .activeNameWrapper form > div{
         margin-bottom: 10px;
     }
 }
+
+@media(max-width: 560px){
+    .solidPart{
+        margin-top:10px;
+    }
+    .adaptiveErrorMessage{
+        margin-left: 0;
+    }
+    :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) .inputWrapper{
+        flex-flow: column nowrap;
+    }
+    :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) :is(.firstNameInput, .middleNameInput, .lastNameInput, .emailInput, .phoneInput){
+        margin-top: 25px;
+        padding-left: 0px !important;
+    }
+    :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) :is(.nameLabel, .emailLabel, .phoneLabel){
+        position: absolute;
+        top:0px;
+    }
+    :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) .inputWrapper :is(.firstNameInput, .middleNameInput, .lastNameInput, .emailInput, .phoneInput):focus ~ :is(.nameLabel, .emailLabel, .phoneLabel){
+        color: rgb(253, 169, 143, 1);
+    }
+    :is(.firstBlock, .middleBlock, .lastBlock, .emailBlock, .phoneBlock) .inputWrapper :is(.firstNameInput, .middleNameInput, .lastNameInput, .emailInput, .phoneInput) ~ .notValid:is(.nameLabel, .emailLabel, .phoneLabel){
+        color: red;
+    }
+}
+
+@media(max-width:330px){
+    .personalDataWrapper .activeEmailWrapper form .emailInput{
+        width:250px;
+    }
+    .inactiveEmailWrapper .solidPart{
+        flex-flow: column;
+    }
+    .inactiveEmailWrapper .solidPart .toggle{
+        margin: 5px 0 0 0 ;
+    }
+}
+
