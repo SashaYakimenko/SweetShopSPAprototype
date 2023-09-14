@@ -200,6 +200,8 @@
 
 .LogFooter p{
     cursor:pointer;
+    font-size: 16px;
+    margin-left: 2px;
 }
 
 .PassReveal{
@@ -254,7 +256,7 @@
     font-size: 14px;
     margin-left:5px;
     font-family: inter;
-    width: 400px;
+    width: auto;
 }
 
 .errorMessage.active{
@@ -280,7 +282,7 @@
     background-color: rgb(253, 169, 143);
 }
 
-@media(max-height: 590px){
+@media(max-height: 630px){
     .LogContent{
         top:10%;
     }
@@ -290,5 +292,90 @@
     .LogContent{
         top:0px;
         margin-top: 10px;
+    }
+}
+
+@media(min-width:500px){
+    .errorMessage{
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 500px){
+    
+    .adaptiveErrorMessageWrap{
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 10px;
+    }
+
+    :is(.firstGroup, .secondGroup){
+        flex-flow: column;
+    }
+
+    :is(.firstGroup, .secondGroup){
+        margin-bottom: 0;
+    }
+
+    .secondGroup{
+        margin-top: 10px;
+    }
+
+    .LogWrapper .LogContent{
+        width: 100%;
+        padding: 14px 20px;
+    }
+    :is(.firstGroup, .secondGroup) {
+        display:flex;
+        width: 100%;
+        max-width: 250px;
+        margin-left: 0;
+    }
+
+    .firstGroup .LogInInput{
+       width: 94%;
+    }
+
+    .secondGroup .PassReveal{
+        position: relative;
+        top: 11px;
+        left: -26px;
+    }
+
+    .checkBoxContainer{
+        margin-top: 20px;
+    }
+
+    .checkBoxContainer > div{
+        margin-left: 0px;
+    }
+
+    .checkBoxContainer .LoginToggle{
+        margin-left: 0px;
+    }
+
+    .ButtonContainer .SubmitButton{
+        flex: 0 1 420px;
+    }
+
+    .ButtonContainer{
+        margin-bottom: 10px;
+    }
+
+    .LogTitle h2{
+        font-weight: 500;
+        font-size: 23px;    
+    }
+
+    :is(.RegistrationLink, .ForgotLink){
+        position: static;
+        
+    }
+
+    .ForgotLink{
+        display:inline-block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        white-space: nowrap;
     }
 }

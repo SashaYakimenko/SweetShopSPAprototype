@@ -253,7 +253,7 @@
     font-size: 14px;
     margin-left:5px;
     font-family: inter;
-    width: 400px;
+    width: auto;
 }
 
 .regErrorMessage.active{
@@ -303,5 +303,79 @@
     .RegContent{
         margin-top: 10px;
         top: 0;
+    }
+}
+
+@media(min-width:500px){
+    .errorMessage{
+        margin-top: 10px;
+    }
+}
+
+@media(max-width: 500px){
+
+    .adaptiveErrorMessageWrap{
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 10px;
+    }
+
+    .RegWrapper .RegContent{
+        width: 100%;
+        padding: 14px 20px;
+    }
+    
+    :is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup) {
+        display:flex;
+        width: 100%;
+        max-width: 250px;
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    :is(.regFirstGroup, .regSecondGroup, .regThirdGroup, .regFourthGroup){
+        flex-flow: column;
+    }
+
+    :is(.regFirstGroup, .regSecondGroup) input{
+        width: 94%;
+    }
+
+    :is(.regThirdGroup, .regFourthGroup) .RegPassReveal{
+        position: relative;
+        top: 11px;
+        left: -26px;
+    }
+
+    .checkBoxContainer{
+        margin-top: 20px;
+    }
+
+    :is(.checkBoxContainer, .newsCheckBoxContainer, .privacyCheckBoxContainer) > div{
+        margin-left: 0px;
+    }
+
+    :is(.checkBoxContainer, .newsCheckBoxContainer, .privacyCheckBoxContainer) .toggle{
+        margin-left: 0px !important;
+    }
+
+    .regButtonContainer .regSubmitButton{
+        flex: 0 1 420px;
+    }
+
+    .regButtonContainer{
+        margin-bottom: 10px;
+    }
+
+    .RegTitle h2{
+        font-weight: 500;
+        font-size: 23px;    
+    }
+
+    .LoginLink{
+        position: static;
+        margin-bottom: 5px;
+        display: inline-block;
     }
 }

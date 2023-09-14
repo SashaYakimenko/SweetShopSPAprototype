@@ -97,31 +97,35 @@ export function RegistrationModal ({regState, setRegState, logState, setLogState
                                                                     maxLength: {value: 40, message: "Maximal length of full name is 40 characters"},
                                                                     pattern: {value:/^[^\d\s]{2,}\s(?:[^\d\s]{2,}\s)?[^\d\s]{2,}\s?$/, message: "Incorrect name value"},
                                                                     validate: {NameValidateRule}
-                                                                     })} className={(errors?.fullName) ? styles.RegNameInput + " " + styles.notValid : styles.RegNameInput} type="text" id="r-m-fullName" required></input>
+                                                                    })} className={(errors?.fullName) ? styles.RegNameInput + " " + styles.notValid : styles.RegNameInput} type="text" id="r-m-fullName" required></input>
                                     <div className={styles.nest}></div>
                                     <label htmlFor="r-m-fullName">Full name</label>
                                     <div className={(errors?.fullName) ? styles.regErrorMessage + " " + styles.active : styles.regErrorMessage }>{(errors?.fullName) && <p>{errors?.fullName?.message ?? "Name error"}</p>}</div>
                                 </div>
                                 <div className={styles.regThirdGroup}>
-                                    <input {...register("password", {required:"This field is required",
-                                                                    minLength: {value: 8, message: "Minimal length of password is 8 characters"},
-                                                                    maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
-                                                                    validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule}})} className={(errors?.password) ? styles.RegPassInput + " " + styles.notValid : styles.RegPassInput} type="password" id="r-m-password" required></input>
-                                    <div style={(!dirtyFields.hasOwnProperty("password")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[2].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("password")) nestsInputRefs.current.childNodes[2].childNodes[0].setAttribute(`type`, `text`);
-                                    else if(dirtyFields.hasOwnProperty("password"))nestsInputRefs.current.childNodes[2].childNodes[0].setAttribute(`type`, `password`);}} className={styles.RegPassReveal}></div>
-                                    <div className={styles.nest}></div>
-                                    <label htmlFor="r-m-password">Password</label>
+                                    <div className={styles.adaptiveErrorMessageWrap}>
+                                        <input {...register("password", {required:"This field is required",
+                                                                        minLength: {value: 8, message: "Minimal length of password is 8 characters"},
+                                                                        maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
+                                                                        validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule}})} className={(errors?.password) ? styles.RegPassInput + " " + styles.notValid : styles.RegPassInput} type="password" id="r-m-password" required></input>
+                                        <div style={(!dirtyFields.hasOwnProperty("password")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[2].childNodes[0].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("password")) nestsInputRefs.current.childNodes[2].childNodes[0].childNodes[0].setAttribute(`type`, `text`);
+                                        else if(dirtyFields.hasOwnProperty("password"))nestsInputRefs.current.childNodes[2].childNodes[0].childNodes[0].setAttribute(`type`, `password`);}} className={styles.RegPassReveal}></div>
+                                        <div className={styles.nest}></div>
+                                        <label htmlFor="r-m-password">Password</label>
+                                    </div>
                                     <div className={(errors?.password) ? styles.regErrorMessage + " " + styles.active : styles.regErrorMessage }>{(errors?.password) && <p>{errors?.password?.message ?? "Password error"}</p>}</div>
                                 </div>
                                 <div className={styles.regFourthGroup}>
-                                    <input {...register("confirmPass", {required:"This field is required",
-                                                                    minLength: {value: 8, message: "Minimal length of password is 8 characters"},
-                                                                    maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
-                                                                    validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule, PassEqualityRule}})} className={(errors?.confirmPass) ? styles.RegPassConfirmInput + " " + styles.notValid : styles.RegPassConfirmInput} type="password" id="r-m-confirmPass" required></input>
-                                    <div style={(!dirtyFields.hasOwnProperty("confirmPass")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[3].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("confirmPass")) nestsInputRefs.current.childNodes[3].childNodes[0].setAttribute(`type`, `text`);
-                                    else if(dirtyFields.hasOwnProperty("confirmPass"))nestsInputRefs.current.childNodes[3].childNodes[0].setAttribute(`type`, `password`);}} className={styles.RegPassReveal}></div>
-                                    <div className={styles.nest}></div>
-                                    <label htmlFor="r-m-confirmPass">Confirm password</label>
+                                    <div className={styles.adaptiveErrorMessageWrap}>
+                                        <input {...register("confirmPass", {required:"This field is required",
+                                                                        minLength: {value: 8, message: "Minimal length of password is 8 characters"},
+                                                                        maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
+                                                                        validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule, PassEqualityRule}})} className={(errors?.confirmPass) ? styles.RegPassConfirmInput + " " + styles.notValid : styles.RegPassConfirmInput} type="password" id="r-m-confirmPass" required></input>
+                                        <div style={(!dirtyFields.hasOwnProperty("confirmPass")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[3].childNodes[0].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("confirmPass")) nestsInputRefs.current.childNodes[3].childNodes[0].childNodes[0].setAttribute(`type`, `text`);
+                                        else if(dirtyFields.hasOwnProperty("confirmPass"))nestsInputRefs.current.childNodes[3].childNodes[0].childNodes[0].setAttribute(`type`, `password`);}} className={styles.RegPassReveal}></div>
+                                        <div className={styles.nest}></div>
+                                        <label htmlFor="r-m-confirmPass">Confirm password</label>
+                                    </div>
                                     <div className={(errors?.confirmPass) ? styles.regErrorMessage + " " + styles.active : styles.regErrorMessage }>{(errors?.confirmPass) && <p>{errors?.confirmPass?.message ?? "Password confirmation error"}</p>}</div>
                                 </div>
 

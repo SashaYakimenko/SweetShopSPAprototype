@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../LogInModal.module.css";
 
-export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => {
-    const exp = /[\d]/;
+export function MobileInput ({ register, errors, bag, setBag, id}) { //May become the source of problem, i`ve removed component memoizaion because of a visual bugs, but it may change the algorithm and provoke some bugs in component logic, hope not
+    const exp = /[\d]/;                                              //In  future this piece may become a source of problems, some situaitions don`t processed completely right and may lead to bugs, next time i`ll write something laconic
     const exp2 = /^[\+]?\(?[\d]{0,3}\)?([\d]|[\s]){0,15}$/;
     const [fromPaste, setFromPaste] = React.useState(false);
     var counter;
@@ -124,4 +124,4 @@ export const MobileInput = React.memo(({ register, errors, bag, setBag, id}) => 
             }}
             ></input>
     )
-})
+}

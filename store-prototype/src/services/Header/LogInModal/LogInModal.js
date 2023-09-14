@@ -77,20 +77,22 @@ export function LogInModal ({logState, setLogState, regState, setRegState, fromR
                         <div className={styles.firstGroup}>
                             {(loginMode)?  <input {...register("login", {required: "This field is required", pattern: {value:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, message: "Incorrect email value"}
                                                                         })} className={(errors?.login)? styles.LogInInput + " " + styles.notValid : styles.LogInInput} type="text" id="l-m-logIn" required></input> :
-                             <MobileInput bag={mobileInputBag} setBag={setMobileInputBag} register={register} errors={errors} id={"l-m-login"}/>}
+                            <MobileInput bag={mobileInputBag} setBag={setMobileInputBag} register={register} errors={errors} id={"l-m-login"}/>}
                             <div className={(loginMode) ? styles.nest + " " + styles.email : styles.nest}></div>
                             <label htmlFor="l-m-logIn">{(loginMode)? "Email" : "Phone"}</label>
                             <div className={(errors?.login) ? styles.errorMessage + " " + styles.active : styles.errorMessage }>{(errors?.login) && <p>{errors?.login?.message ?? "Login error"}</p>}</div>
                         </div>
                         <div className={styles.secondGroup}>
-                            <input {...register("password", {required:"This field is required",
-                                                             minLength: {value: 8, message: "Minimal length of password is 8 characters"},
-                                                             maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
-                                                             validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule}})} className={(errors?.password) ? styles.PassInput + " " + styles.notValid : styles.PassInput} type="password" id="l-m-password" required></input>
-                            <div style={(!dirtyFields.hasOwnProperty("password")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[1].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("password")) nestsInputRefs.current.childNodes[1].childNodes[0].setAttribute(`type`, `text`);
-                            else if(dirtyFields.hasOwnProperty("password"))nestsInputRefs.current.childNodes[1].childNodes[0].setAttribute(`type`, `password`);}} className={styles.PassReveal}></div>
-                            <div className={styles.nest}></div>
-                            <label htmlFor="l-m-password">Password</label>
+                            <div className={styles.adaptiveErrorMessageWrap}>
+                                <input {...register("password", {required:"This field is required",
+                                                                minLength: {value: 8, message: "Minimal length of password is 8 characters"},
+                                                                maxLength: {value: 12, message: "Maximal length of password is 12 characters"},
+                                                                validate: {PassValidateNumberNeedRule, PassValidateCharRule, PassValidateUpperCharRule}})} className={(errors?.password) ? styles.PassInput + " " + styles.notValid : styles.PassInput} type="password" id="l-m-password" required></input>
+                                <div style={(!dirtyFields.hasOwnProperty("password")) ? {filter:"none", cursor:"initial"} : {} } onClick={() => {if (nestsInputRefs.current.childNodes[1].childNodes[0].childNodes[0].type === "password" && dirtyFields.hasOwnProperty("password")) nestsInputRefs.current.childNodes[1].childNodes[0].childNodes[0].setAttribute(`type`, `text`);
+                                else if(dirtyFields.hasOwnProperty("password"))nestsInputRefs.current.childNodes[1].childNodes[0].childNodes[0].setAttribute(`type`, `password`);}} className={styles.PassReveal}></div>
+                                <div className={styles.nest}></div>
+                                <label htmlFor="l-m-password">Password</label>
+                            </div>
                             <div className={(errors?.password) ? styles.errorMessage + " " + styles.active : styles.errorMessage }>{(errors?.password) && <p>{errors?.password?.message ?? "Password error"}</p>}</div>
                         </div>
                         <div className={(checkBoxState) ? styles.checkBoxContainer + ` ${styles.active}` : styles.checkBoxContainer}>
