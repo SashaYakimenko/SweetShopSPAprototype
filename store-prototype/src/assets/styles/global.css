@@ -94,30 +94,34 @@ select {
 
 @media (max-width: 1025px)
 {
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > :is(div:nth-last-of-type(2), div:nth-last-of-type(5)){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > .globalSecond{
     display: none;
   }
 
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(4){
-    flex: 1 6 270px;
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > .globalThird div:nth-of-type(2){
+    display: none;
   }
 
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > .globalThird div:nth-of-type(3){
     display:block;
   }
 
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-of-type(1){
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > .globalFirst .menuIcon{
     display:block;
     position:relative;
     top: -2px;
+  }
+
+  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > .globalFirst div:nth-of-type(2){
+    margin:0;
   }
 
   :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveNav{
     display:none;
   }
 
-  .modalMenuAptiveHeaderFix{
-    top: 105px;
+  .modalMenuAdaptiveHeaderFix{
+    top: 75px;
   }
 }
 
@@ -130,22 +134,8 @@ select {
   :is(.mainWrapper, .showcaseWrapper, .accountWrapper) .adaptiveWrapper{
     height: 75px;
   }
-  
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(1){
-    height: 40.90px;
-    flex-basis: 54.54px;
-  }
 
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-last-of-type(3){
-    height:63.63px;
-    flex-basis: 54.54px;
-  }
-
-  :is(.mainWrapper, .showcaseWrapper, .accountWrapper) header .adaptiveWrapper > div:nth-of-type(1){
-    height: 40.90px;
-    flex-basis: 40.90px;
-  }
-  .modalMenuAptiveHeaderFix{
+  .modalMenuAdaptiveHeaderFix{
     top: 75px;
   }
 }
@@ -153,6 +143,6 @@ select {
 @media (max-width: 420px){
   div .menuModalMobileStyle
   {
-    width:45%;
+    width:50%;
   }
 }

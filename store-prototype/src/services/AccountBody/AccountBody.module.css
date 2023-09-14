@@ -23,7 +23,7 @@
 
 .titlePart{
     display: flex;
-    height: 105px;
+    height: 95px;
     flex: 0 1 100%;
     background-color: transparent;
     font-family: Ubuntu;

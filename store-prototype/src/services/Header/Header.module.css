@@ -4,12 +4,20 @@
     z-index: 500;
 }
 
+.ultraWideFix{
+    display:flex;
+    justify-content: center;
+    background-color: rgba(253, 169, 143, 1);
+}
+
 .headerContainer{
     display:flex;
     flex-flow: row;
     align-items: center;
-    height: 105px;
+    height: 75px;
     background-color: rgba(253, 169, 143, 1);
+    flex: 0 1 1903px;
+    justify-content: space-between;
 }
 
 .title:hover{
@@ -20,26 +28,23 @@
     color:white;
     text-shadow: 0px -1px 0px #D87878, 0px 1px 0px #D87878, -1px 0px 0px #D87878, 1px 0px 0px #D87878;
     font-family: Ubuntu;
-    font-size: 2.75rem;
-    font-weight: 700;
+    font-size: 36px;
+    font-weight: 500;
     white-space: nowrap;
 }
 
 .header{
-    padding: 1.5625rem;
-    flex: 0 1 23.75rem;
+    margin-left: 15px;
 }
 
 .searchBar{
-    margin: 25px 0px 25px 0px;
     padding: 5px 0px;
-    flex: 0.8 1 800px;
-    max-width: 1000px;
+    flex: 0 1 1000px;
 }
 .personalAcc{
     margin-right: 30px;
-    height: 70px;
-    flex: 0 0 60px;
+    height: 60px;
+    width: 50px;
     background-image: url("../../assets/icons/personalAccIcon.svg");
     background-repeat: round;
     background-size: cover;
@@ -50,10 +55,22 @@
     cursor: pointer;
 }
 
+
+.leftBlock{
+    display:flex;
+    align-items: center;
+}
+
+.rightBlock{
+    display:flex;
+    align-items: center;
+    justify-content: end;
+}
+
 .cart{
-    height: 70px;
+    height: 50px;
     margin: 0px 25px 0px 0px;
-    flex: 0 0 60px;
+    width: 55px;
     background-image: url("../../assets/icons/cartIcon.svg");
     background-repeat: round;
     background-size: cover;
@@ -64,20 +81,11 @@
     cursor: pointer;
 }
 
-.interceptor{
-    flex: 0 6 360px;
-}
-
-.titleInterceptor{
-    flex: 1 0 50px;
-    min-width: 40px;
-}
-
 .mobileSearchButton{
     margin-top: 5px;
     margin-right: 15px;
-    height: 45px;
-    flex: 0 0 60px;
+    height: 40.90px;
+    width: 54.5px;
     background-image: url("../../assets/icons/searchIcon.svg");
     background-repeat: round;
     background-size: cover;
@@ -93,9 +101,10 @@
 .mobileMenuButton{
     margin-top: 5px;
     margin-left: 15px;
+    margin-right: 10px;
     display: none;
-    flex: 0 0 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background-image: url("../../assets/icons/menuIcon.svg");
     background-repeat: round;
     background-size: cover;
@@ -109,9 +118,10 @@
 .mobileMenuButtonActive{
     margin-top: 5px;
     margin-left: 10px;
+    margin-right: 10px;
     display: none;
-    flex: 0 0 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background-image: url("../../assets/icons/closeMenuModalIcon.svg");
     background-repeat: round;
     background-size: cover;
@@ -140,9 +150,11 @@
 
 @media(max-width:480px){
 
-    .mobileMenuButton{
-        height: 30px !important;
-        flex-basis: 30px !important;
+    .mobileMenuButton, .mobileMenuButtonActive{
+        height: 25px !important;
+        flex-basis: 25px !important;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
     .cart{
@@ -156,6 +168,20 @@
     }
     
     .title{
-        font-size: 2rem;
+        font-size: 24px;
+    }
+}
+
+@media(max-width:370px){
+    .rightBlock{
+        width:80px;
+    }
+    .cart{
+        height: 37.5px !important;
+        flex-basis: 34.5px !important;
+    }
+    .mobileSearchButton{
+        height: 25.5px !important;
+        flex-basis: 34.5px !important;
     }
 }

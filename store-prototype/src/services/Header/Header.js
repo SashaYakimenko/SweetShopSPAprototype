@@ -17,23 +17,27 @@ export function Header({setAccModalActive, mobileEnteredState})
 
     return(
         <div className={styles.headerContentContainer}>
-            <div className={styles.desktopContentContainer}> 
-                <div className={styles.headerContainer + " adaptiveWrapper"}>
-                    {(menuState) ? <div className={styles.mobileMenuButtonActive} onClick={() => {if (menuState === true) setMenuState(false)
-                        else setMenuState(true)}}/> : <div className={styles.mobileMenuButton} onClick={() => {if(setAccModalActive && mobileEnteredState) setAccModalActive(false)
-                            if (menuState === true) setMenuState(false)
-                            else setMenuState(true)}}/> }
-                    <div className={styles.header}>
-                        <p className={styles.title} onClick={(e) => {nav("/")}}>Candice Candies</p>
+            <div className={styles.desktopContentContainer}>
+                <div className={styles.ultraWideFix}>
+                    <div className={styles.headerContainer + " adaptiveWrapper"}>
+                        <div className={styles.leftBlock+ " " + "globalFirst"}>
+                            {(menuState) ? <div className={styles.mobileMenuButtonActive + " " + "menuIcon" } onClick={() => {if (menuState === true) setMenuState(false)
+                                else setMenuState(true)}}/> : <div className={styles.mobileMenuButton + " " + "menuIcon"} onClick={() => {if(setAccModalActive && mobileEnteredState) setAccModalActive(false)
+                                    if (menuState === true) setMenuState(false)
+                                    else setMenuState(true)}}/> }
+                            <div className={styles.header}>
+                                <p className={styles.title} onClick={(e) => {nav("/")}}>Candice Candies</p>
+                            </div>
+                        </div>
+                        <div className={styles.searchBar+ " " + "globalSecond"}>
+                            <SearchBar  />
+                        </div>
+                        <div className={styles.rightBlock + " " + "globalThird"}>
+                            <div onClick={(e) => {nav("/ordering")}} className={styles.cart} />
+                            <div onClick={(e) => {setLogModalState(true);}} className={styles.personalAcc} />
+                            <div className={styles.mobileSearchButton}></div>
+                        </div>
                     </div>
-                    <div className={styles.titleInterceptor} />
-                    <div className={styles.searchBar}>
-                        <SearchBar  />
-                    </div>
-                    <div className={styles.interceptor} />
-                    <div onClick={(e) => {nav("/ordering")}} className={styles.cart} />
-                    <div onClick={(e) => {setLogModalState(true);}} className={styles.personalAcc} />
-                    <div className={styles.mobileSearchButton}></div>
                 </div>
                 <SiteNavBar NavData={[{address:"/waffles", id:0},{address:"/pancakes", id:1},{address:"/chocolate", id:2},{address:"/cakes", id:3},{address:"/candies", id:4}]}/>
             </div>

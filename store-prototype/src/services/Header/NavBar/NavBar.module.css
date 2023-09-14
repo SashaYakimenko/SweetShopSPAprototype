@@ -1,25 +1,28 @@
 .adaptiveNav{
-    display:block;
+    display:flex;
+    background-color: #FFF3C9;
+    justify-content: center;
 }
 
 .navContainer{
-    display: flex;
+    background-color: #FFF3C9;
+    display: inline-flex;
     flex-flow: row;
-    height: 75px;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+    width: 1500px;
+    height: 55px;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .navItem{
     background-color: #FFF3C9;
-    font-size: 31.2px;
+    font-size: 27px;
     text-align: center;
-    flex: 1 2 288px;
-    padding: 21.84px;
-    transition: box-shadow 0.3s linear;
+    width: 288px;
     color: black;
     cursor: pointer;
 }
 .navItem:hover{
-    box-shadow: 0px 7px 10px -10px rgba(0, 0, 0, 0.6);
     color:white
 }
 .navItem a{
@@ -31,4 +34,13 @@
 .navItem:hover a{
     font-weight: 500;
     text-shadow: 1px 0px 0px rgba(216,120,120,1), 0px 1px 0px rgba(216,120,120,1), -1px 0px 0px rgba(216,120,120,1), 0px -1px 0px rgba(216,120,120,1);
+}
+
+@media(max-width: 1460px){
+    .navContainer{
+        width: 1300px;
+    }
+    .navItem{
+        width:200px;
+    }
 }

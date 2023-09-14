@@ -11,7 +11,8 @@
     border: none;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    flex: 0.9 3 610px;
+    width: 100%;
+    margin-left: 100px;
 }
 
 .searchBarWrapper input[type="text"]::placeholder{
@@ -30,6 +31,7 @@
     flex: 0 0 50px;
     position: relative;
     cursor: pointer;
+    margin-right: 100px;
 }
 
 .searchBarWrapper button:hover{

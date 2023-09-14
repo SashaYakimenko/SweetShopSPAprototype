@@ -7,7 +7,7 @@ export function SiteNavBar({ NavData })
 {
     var nav = useNavigate();
     return(
-        <nav className="adaptiveNav">
+        <nav className={styles.adaptiveNav + " " + "adaptiveNav"}>
             <ul className={styles.navContainer}>
             {
                 NavData.map((item) => {

@@ -74,7 +74,7 @@ export function MenuModal({NavData, menuState, setMenuState, setAccModalState, a
     }
 
     return(
-        <div onMouseDown={() => {setMenuState(false)} } className={(menuState) ? styles.modalMenuWrapper + " modalMenuAptiveHeaderFix " + styles.active : styles.modalMenuWrapper + " modalMenuAptiveHeaderFix"}>
+        <div onMouseDown={() => {setMenuState(false)} } className={(menuState) ? styles.modalMenuWrapper + " modalMenuAdaptiveHeaderFix " + styles.active : styles.modalMenuWrapper + " modalMenuAdaptiveHeaderFix"}>
             <div className={(menuState) ? styles.modalContent + " " + styles.active + " menuModalMobileStyle" : styles.modalContent + " menuModalMobileStyle"} onMouseDown={(e) => {e.stopPropagation();}}>
                     <div className={styles.personalCabinetButtonWrapper} onClick={()=>{setAccModalState(true);}}>
                         <div className={styles.personalCabinetButton}>
