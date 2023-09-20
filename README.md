@@ -13,5 +13,6 @@ You have to run it from directory which contain the package.JSON file.
 How to Install:
 
 1. Copy a master branch of repository using: git clone https://github.com/SashaYakimenko/SweetShopSPAprototype.git
-2. Use npm start command
-3. Application will run on create-react-app developer web server and host on your computer
+2. Go to the store-prototype folder, run npm install command and wait until ddependecies will be downloaded 
+3. Use npm start command
+4. Application will run on create-react-app developer web server and host on your computer
